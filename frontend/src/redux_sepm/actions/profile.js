@@ -27,9 +27,11 @@ export const getSavedFunction = (id) => async (dispatch) => {
 
 export const updateAva = (user_id, avatar) => async (dispatch) => {
     try {
+        console.log("updateAvaaaaa")
         const {data} = await api.updateAvatar(user_id, avatar);
-
+        window.location.replace(`/client/profile/${user_id}`)
         dispatch({ type: UPDATE_AVATAR, payload: data });
+        
     } catch (error) {
         console.log(error)
     }

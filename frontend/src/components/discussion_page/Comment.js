@@ -70,8 +70,7 @@ export default function Comment({ comment, post_id }) {
             dataArray.append("images", commentData.images, { type: 'image/jpeg' });
         }
         console.log(commentData.images)
-        dispatch(updateComment(dataArray));
-        //window.location.replace(`/client/postdetail/${post_id}`)
+        dispatch(updateComment(post_id, dataArray));
     }
     // const {post_id} = useParams()
     console.log(comment?.images)

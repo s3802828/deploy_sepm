@@ -11,9 +11,10 @@ export const addComment = (post) => async (dispatch) => {
     }
 }
 
-export const updateComment = (post) => async (dispatch) => {
+export const updateComment = (id, post) => async (dispatch) => {
     try {
         const { data } = await api.updateComment(post);
+        window.location.replace(`/client/postdetail/${id}`)
 
         dispatch({ type: 'UPDATE_COMMENT', payload: data });
     } catch (error) {
