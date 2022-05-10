@@ -54,7 +54,7 @@ export default function Search({ language_id }) {
                                 <tbody>
                                     {searchResult && searchResult.topics.map((element, index) => <tr>
                                         <th scope="row">{index + 1}</th>
-                                        <td><a href={`/cheatsheet/${language_id.language_id}#topic-${element._id}`} style={{ textDecoration: "none", color: "black" }}>
+                                        <td><a href={`/client/cheatsheet/${language_id.language_id}#topic-${element._id}`} style={{ textDecoration: "none", color: "black" }}>
                                             {element.name}
                                         </a></td>
                                     </tr>)}
@@ -70,7 +70,7 @@ export default function Search({ language_id }) {
                                 <tbody>
                                     {searchResult && searchResult.functions.map((element, index) => <tr>
                                         <th scope="row">{index + 1}</th>
-                                        <td><a href={`/cheatsheet/${language_id.language_id}#${element._id}`} style={{textDecoration: "none", color:"black"}}>
+                                        <td><a href={`/client/cheatsheet/${language_id.language_id}#${element._id}`} style={{textDecoration: "none", color:"black"}}>
                                             {element.name}
                                         </a></td>
                                     </tr>)}

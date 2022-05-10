@@ -25,7 +25,7 @@ export default function Post({ post }) {
                 <div class="card-header text-muted">
                     <div>
                         <a
-                            href={`/profile/${post.user_id}`}
+                            href={`/client/profile/${post.user_id}`}
                             style={{ "text-decoration": "none", color: "black" }}
                         >
                             Posted by: {post.users[0]?.name}@{post.users[0]?.username}
@@ -35,7 +35,7 @@ export default function Post({ post }) {
                         </span>
                     </div>
                 </div>
-                <a href={`/postdetail/${post._id}`} style={{ "textDecoration": "none", color: "black" }}>
+                <a href={`/client/postdetail/${post._id}`} style={{ "textDecoration": "none", color: "black" }}>
                     <div class="card-body">
                         <h3 class="card-title">
                             {post.title}
@@ -66,7 +66,7 @@ export default function Post({ post }) {
                         </span>
                     </span>
                     <span class="numberOfLikes p-2 bd-highlight">
-                        <a href={`/postdetail/${post._id}`} style={{ "textDecoration": "none", color: "black" }}><i class="bi bi-reply"></i> <span className='ms-2'>Replies</span></a>
+                        <a href={`/client/postdetail/${post._id}`} style={{ "textDecoration": "none", color: "black" }}><i class="bi bi-reply"></i> <span className='ms-2'>Replies</span></a>
                     </span>
                     {/* </span> */}
                     &nbsp;&nbsp;&nbsp;&nbsp;

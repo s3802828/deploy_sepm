@@ -77,10 +77,7 @@ export default function Login() {
                                 </div>
                                 <div class="row d-flex justify-content-between">
                                     <div class="col-lg-8 col-md-7 col-12 text-center text-md-start my-1">
-                                        <a href="/signup">Don't have an account? Sign up</a>
-                                    </div>
-                                    <div class="col-lg-4 col-md-5 col-12 text-center text-md-end my-1">
-                                        <a href="#">Forget password</a>
+                                        <a href="/client/signup">Don't have an account? Sign up</a>
                                     </div>
                                 </div>
                             </form>

@@ -40,7 +40,7 @@ export default function PersonalInfo({ userInfo }) {
                                     Edit Avatar
                                 </a>
                             </li>
-                            <li><a class="dropdown-item" href="/passwordchange">Change Password</a></li>
+                            <li><a class="dropdown-item" href="/client/passwordchange">Change Password</a></li>
                         </ul>
 
                         <EditProfile />

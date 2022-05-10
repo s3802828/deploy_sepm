@@ -61,7 +61,7 @@ export default function Homepage() {
                             left: 0,
                             bottom: 0
                         }}>
-                            <img src={searching} class="d-block w-100" alt="..." style={{
+                            <img src={searching} class="d-block w-100" alt="searching" style={{
                                 opacity: 0.3, width: "100%",
                                 height: "100%",
                                 objectFit: "cover"
@@ -79,7 +79,7 @@ export default function Homepage() {
                             left: 0,
                             bottom: 0
                         }}>
-                            <img src={questioning} class="d-block w-100" alt="..." style={{
+                            <img src={questioning} class="d-block w-100" alt="questioning" style={{
                                 opacity: 0.3, width: "100%",
                                 height: "100%",
                                 objectFit: "cover"
@@ -97,7 +97,7 @@ export default function Homepage() {
                             left: 0,
                             bottom: 0
                         }}>
-                            <img src={personalizing} class="d-block w-100" alt="..." style={{
+                            <img src={personalizing} class="d-block w-100" alt="personalizing" style={{
                                 opacity: 0.3, width: "100%",
                                 height: "100%",
                                 objectFit: "cover"
@@ -122,25 +122,25 @@ export default function Homepage() {
 
             <section id="about" style={{ backgroundColor: "#fda47e", paddingBottom: "5%", paddingTop: "3%" }}>
                 <h1 className="text-center">ABOUT US</h1>
-                <div class="section-header-break text-center">--------<img src={startgif} class="img-fluid" style={{ maxWidth: "1.2%", maxHeight: "1.2%" }} />--------</div>
+                <div class="section-header-break text-center">--------<img src={startgif} alt= "stargif" class="img-fluid" style={{ maxWidth: "1.2%", maxHeight: "1.2%" }} />--------</div>
                 <br />
                 <div className="text-center ms-5 me-5">
                     <p>For the past several years, technology has been growing so rapidly. With the purpose of helping human life have much more convenience, there are a lot of high-tech products such as websites, mobile applications, robotics, etc., produced every month. In order to produce those products, especially the software, the programming languages are invented to write up the program for the software. With the growth of the creation of many software, the demand for software engineers also increases. To be able to become a software engineer, people have to learn several programming languages to make the required products. However, with the huge amount of programming languages and each language has various of knowledge such as design, built-in functions, etc., it’s impossible for developers to remember all of them with human mind. Therefore, each programming language creator has made a documentation for them listing out every detail about it. Not only that, but there are also some organizations come up with the tutorials to support developer to make a start or remind them about the syntax, the built-in functions definition, how to use those functions, etc. Aside from the tutorials, nowadays, most people like the idea of sharing our knowledge and information with other people, so that many forum websites are developed so as to serve that preference. There are also several forum websites for developers, whose levels range from beginners to experts, to help each other solve problem and update information about technology such as Stack Overflow, GitHub, etc.</p>
                     <p>Both the documentations and the forums are beneficial for developers so that there are a lot of users using them. However, aside their advantages, there are still complaints from user about those tools. Some users say that the official documentations sometimes are not updated regularly, make it insistent with the new features of practical technology. Furthermore, the documentation’s wording is sometime confusing and hard to understand so that every time the user has problem, they usually go to the forum page to ask the questions. Aside from the forum, some websites offer a cheat sheet containing all of the built-in functions so that user could get what they want easier than accessing the documentations and users tend to prefer this one because sometimes they just want to know lists of built-in functions that the programming language have so that they could use directly. Acknowledged the preference of the cheat sheet and the forum format, we have come up with the idea of integrating both of them into our website, CSFunction.</p>
-                    <img src={weblogo} class="img-fluid mt-3"/>
+                    <img src={weblogo} alt = "weblogo" class="img-fluid mt-3"/>
                 </div>
             </section>
 
             <section id="services" style={{ backgroundColor: "#8c8a8b", paddingBottom: "5%", paddingTop: "3%" }}>
                 <h1 className="text-center">OUR SERVICES</h1>
-                <div class="section-header-break text-center">--------<img src={startgif} class="img-fluid" style={{ maxWidth: "1.2%", maxHeight: "1.2%" }} />--------</div>
+                <div class="section-header-break text-center">--------<img src={startgif} alt= "stargif" class="img-fluid" style={{ maxWidth: "1.2%", maxHeight: "1.2%" }} />--------</div>
                 <br />
                 <div class="row">
                     <div class="col-sm-2"></div>
                     <div class="col-sm-4">
                         <div class="card text-center rounded-3" style={{ backgroundColor: "#f2efdb" }}>
                             <div class="card-body">
-                                <img src={document} class="img-fluid w-25 h-25" alt="..." /><br /><br />
+                                <img src={document} class="img-fluid w-25 h-25" alt="document" /><br /><br />
                                 <h5 class="card-title">Cheat Sheet Documentation</h5>
                                 <p class="card-text">Offer organized lists of built-in functions</p>
                                 <a href="/cheatsheet" class="btn btn-outline-secondary" style={{ backgroundColor: "#8c8a8b", outlineColor: "#8c8a8b", color: "#f2efdb" }}>Go Explore</a>
@@ -150,7 +150,7 @@ export default function Homepage() {
                     <div class="col-sm-4">
                         <div class="card text-center rounded-3" style={{ backgroundColor: "#f2efdb" }}>
                             <div class="card-body">
-                                <img src={forum} class="img-fluid w-25 h-25" alt="..." /><br /><br />
+                                <img src={forum} class="img-fluid w-25 h-25" alt="forum" /><br /><br />
                                 <h5 class="card-title">Discussion Forum</h5>
                                 <p class="card-text">Feel free to post questions here</p>
                                 <a href="/discussion" class="btn btn-outline-secondary" style={{ backgroundColor: "#8c8a8b", outlineColor: "#8c8a8b", color: "#f2efdb" }}>Go Explore</a>
@@ -163,21 +163,21 @@ export default function Homepage() {
 
             <section id="contact" style={{ paddingBottom: "5%", paddingTop: "3%" }}>
                 <h1 className="text-center">CONTACT US</h1>
-                <div class="section-header-break text-center">--------<img src={startgif} class="img-fluid" style={{ maxWidth: "1.2%", maxHeight: "1.2%" }} />--------</div>
+                <div class="section-header-break text-center">--------<img src={startgif} alt= "stargif" class="img-fluid" style={{ maxWidth: "1.2%", maxHeight: "1.2%" }} />--------</div>
                 <br />
                 <div class="container-fluid">
                     <div class="row d-flex justify-content-evenly">
 
                         <div class="col-md-4 text-center">
                             <div class="contact-address">
-                                <img src="https://img.icons8.com/ios/50/000000/address--v1.png" />                                <h3>Address</h3>
+                                <img src="https://img.icons8.com/ios/50/000000/address--v1.png" alt="addressIcon"/>                                <h3>Address</h3>
                                 <address>82 Hai Ba Trung Street, District 1, Ho Chi Minh City, Vietnam</address>
                             </div>
                         </div>
 
                         <div class="col-md-4 text-center border-start border-dark">
                             <div class="contact-phone">
-                                <img src="https://img.icons8.com/ios/50/000000/phone.png" />
+                                <img src="https://img.icons8.com/ios/50/000000/phone.png"  alt="phoneIcon"/>
                                 <h3>Phone Number</h3>
                                 <p>(+84) 028 456 190</p>
                             </div>
@@ -185,7 +185,7 @@ export default function Homepage() {
 
                         <div class="col-md-4 text-center border-start border-dark">
                             <div class="contact-email">
-                                <img src="https://img.icons8.com/ios/50/000000/envelope-dots.png" />
+                                <img src="https://img.icons8.com/ios/50/000000/envelope-dots.png" alt="emailIcon"/>
                                 <h3>Email</h3>
                                 <p>csfunctionservices@gmail.com</p>
                             </div>

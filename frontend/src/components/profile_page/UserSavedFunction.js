@@ -59,58 +59,6 @@ export default function UserSavedFunctions({ func_detail, user_id }) {
                     </div>
                 </div>
 
-                {/* <Collapse in={open}>
-                    <div className="text-dark" >
-                        <h6>Parameters</h6>
-                        <div className="bg-light ">
-                            <div style={{ padding: 5, marginBottom: 10 }}>
-                                {func_detail.params}
-                            </div>
-                        </div>
-
-                        <div className="mt-2 border-bottom border-1 border-dark p-3">
-                            <h5>Description</h5>
-                            <hr></hr>
-                            <div >
-                                {func_detail.description}
-                            </div>
-                        </div>
-                        <div className="mt-2 border-bottom border-1 border-dark p-3">
-                            <div>
-                                <div class="d-flex">
-                                    <h5>Example</h5>
-                                    <button type="button" class="btn btn-outline-secondary ms-auto" onClick={() => { copyFunction(); }}>
-                                        {copied == false ? "Copy" : "Copied"}
-                                    </button>
-                                </div>
-
-
-                                <hr></hr>
-                                <pre>
-                                    <code>
-                                        {func_detail.example_question}
-                                    </code>
-                                </pre>
-                            </div>
-                        </div>
-                        <div className="mt-2 border-bottom border-1 border-dark p-3">
-                            <h5>Output</h5>
-                            <hr></hr>
-                            <div>
-                                {func_detail.example_result}
-                            </div>
-                        </div>
-                        <div className="mt-2 border-bottom border-1 border-dark p-3">
-                            <h5>More details</h5>
-                            <hr></hr>
-                            <a href={`${func_detail.more_detail}`}>
-                                {func_detail.more_detail}
-                            </a>
-                        </div>
-                    </div>
-
-                </Collapse> */}
-
                 <Collapse in={open}>
                     <div className="text-dark bg-light rounded mt-3" style={{ border: "1px solid black" }} >
                         <div className='border-bottom border-1 border-dark p-3'>

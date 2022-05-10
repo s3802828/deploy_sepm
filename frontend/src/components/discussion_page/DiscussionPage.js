@@ -50,7 +50,7 @@ export default function DiscussionPage() {
                             <i class="bi bi-filter" />Language
                         </button>
                         <ul class="dropdown-menu">
-                            {languageList.map((element) => <li><a class="dropdown-item" href={`/discussion/${element._id}/general`}>{element.name}</a></li>)}
+                            {languageList.map((element) => <li><a class="dropdown-item" href={`/client/discussion/${element._id}/general`}>{element.name}</a></li>)}
                         </ul>
                     </div>
 

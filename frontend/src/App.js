@@ -7,7 +7,6 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './Navbar';
 import MainPage from './components/mainpage/MainPage';
 import AddFunction from './components/forms/AddFunction';
-import Footer from './Footer';
 import DiscussionPage from './components/discussion_page/DiscussionPage';
 import AddAdmin from './components/forms/AddAdmin';
 import Homepage from './Homepage';
@@ -27,7 +26,7 @@ function App() {
   const dispatch = useDispatch()
   useEffect(() => {
     dispatch(getRole())
-  }, [])
+  }, [dispatch])
   return (
     <div >
       <Router>
@@ -37,16 +36,16 @@ function App() {
         <div>
           <Routes>
             <Route exact path="/" element={<Homepage />} />
-            <Route exact path="/cheatsheet/:language_id" element={<MainPage />} />
-            {authData && role && role.includes('admin') && <Route exact path="/addfunction/:language_id" element={<AddFunction />} />}
-            <Route exact path="/discussion/:language_id/:topic_id" element={<DiscussionPage />} />
-            {authData && role && role.includes('admin') && <Route exact path="/addadmin" element={<AddAdmin />} />}
-            <Route exact path="/profile/:user_id" element={<ProfilePage />} />
-            <Route exact path="/postdetail/:post_id" element={<PostDetailPage />} />
-            <Route exact path="/login" element={<Login />} />
-            <Route exact path="/signup" element={<Signup />} />
-            <Route exact path="/passwordchange" element={<PasswordChange />} />
-            <Route exact path="/editpost/:post_id" element={<EditPost />} />
+            <Route exact path="/client/cheatsheet/:language_id" element={<MainPage />} />
+            {authData && role && role.includes('admin') && <Route exact path="/client/addfunction/:language_id" element={<AddFunction />} />}
+            <Route exact path="/client/discussion/:language_id/:topic_id" element={<DiscussionPage />} />
+            {authData && role && role.includes('admin') && <Route exact path="/client/addadmin" element={<AddAdmin />} />}
+            <Route exact path="/client/profile/:user_id" element={<ProfilePage />} />
+            <Route exact path="/client/postdetail/:post_id" element={<PostDetailPage />} />
+            <Route exact path="/client/login" element={<Login />} />
+            <Route exact path="/client/signup" element={<Signup />} />
+            <Route exact path="/client/passwordchange" element={<PasswordChange />} />
+            <Route exact path="/client/editpost/:post_id" element={<EditPost />} />
             <Route exact path="*" element={<PageNotFound />} />
           </Routes>
         </div>

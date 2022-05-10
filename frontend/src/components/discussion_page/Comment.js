@@ -40,7 +40,6 @@ export default function Comment({ comment, post_id }) {
     const {
         register,
         handleSubmit,
-        reset,
         formState: { errors },
     } = useForm({
         resolver: yupResolver(validationSchema),
@@ -66,7 +65,6 @@ export default function Comment({ comment, post_id }) {
         }
 
         dispatch(updateComment(dataArray));
-        // window.location.replace(`/postdetail/${post_id}`)
     }
 
     console.log(comment?.images)
@@ -78,28 +76,21 @@ export default function Comment({ comment, post_id }) {
             <div class="container-fluid my-3">
                 <div class="row justify-content-center my-1">
                     <div class="col-10" style={{ backgroundColor: "#adab9a" }}>
-                        {/* <div className="row justify-content-between">
-                            <div class="col-md-2 col-4 d-flex align-items-center justify-content-center">
-                                <img src="http://cdn.onlinewebfonts.com/svg/img_24787.png"
-                                    class="img-fluid rounded-circle m-2" style={{width: "50px"}} alt=""></img>
-                            </div>
-                            <div class="col-md-2 col-4 d-flex align-items-center justify-content-center">
-                                {edit == true */}
                         <div class="row justify-content-between ms-3">
                             <div class="col-6 d-flex align-items-center justify-content-start">
-                                <a href={`/profile/${comment?.user_id}`} style={{ "text-decoration": "none", color: "black" }}><img src={`${comment?.users[0]?.avatar ? `https://csfunctions-web-app.s3.amazonaws.com/${comment?.users[0]?.avatar}` : 'http://cdn.onlinewebfonts.com/svg/img_24787.png'} `}
+                                <a href={`/client/profile/${comment?.user_id}`} style={{ "text-decoration": "none", color: "black" }}><img src={`${comment?.users[0]?.avatar ? `https://csfunctions-web-app.s3.amazonaws.com/${comment?.users[0]?.avatar}` : 'http://cdn.onlinewebfonts.com/svg/img_24787.png'} `}
                                     class="img rounded-circle m-2" width="40" height="40" alt=""></img>
                                 <label id="commentOwner">{comment?.users[0]?.name}&nbsp;({comment?.users[0]?.username})</label></a>
                             </div>
                             <div class="col-6 d-flex align-items-center justify-content-end">
-                                {authData && authData._id === comment?.user_id && (edit == true
+                                {authData && authData._id === comment?.user_id && (edit === true
                                     ? <div></div>
                                     :
                                     <div class="dropend d-flex">
                                         <button type="button" class="btn btn-primary ms-auto dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"></button>
                                         <ul class="dropdown-menu">
                                             <li><button class="dropdown-item" onClick={() => setEdit(true)}>Edit</button></li>
-                                            <li><button class="dropdown-item" onClick={() => { dispatch(deleteComment(commentData._id)); window.location.replace("/postdetail") }}>Delete</button></li>
+                                            <li><button class="dropdown-item" onClick={() => { dispatch(deleteComment(commentData._id)); window.location.replace(`/client/postdetail/${commentData?.post_id}`) }}>Delete</button></li>
                                         </ul>
                                     </div>
                                 )}
@@ -113,7 +104,7 @@ export default function Comment({ comment, post_id }) {
                                     </div>
 
                                     <div class="row justify-content-center my-1">
-                                        {authData && authData._id === comment?.user_id && (edit == true
+                                        {authData && authData._id === comment?.user_id && (edit === true
                                             ? <form encType="multipart/form-data" onSubmit={handleSubmit(submit)}>
                                                 <textarea name="content" value={commentData?.content} className={`form-control ${errors.content
                                                     ? 'is-invalid'

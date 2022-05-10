@@ -18,16 +18,16 @@ export default function Navbar() {
                                 <a class="nav-link active" aria-current="page" href="/" style={{ color: '#fda47e' }}>Home</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="/#about" style={{ color: '#fda47e' }}>About</a>
+                                <a class="nav-link" href="/client/#about" style={{ color: '#fda47e' }}>About</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" aria-current="page" href="/cheatsheet/624bfee26f2c17b5768ef2a6" style={{ color: '#fda47e' }}>Cheat Sheet</a>
+                                <a class="nav-link" aria-current="page" href="/client/cheatsheet/624bfee26f2c17b5768ef2a6" style={{ color: '#fda47e' }}>Cheat Sheet</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="/discussion/624bfee26f2c17b5768ef2a6/general" style={{ color: '#fda47e' }}>Discussion</a>
+                                <a class="nav-link" href="/client/discussion/624bfee26f2c17b5768ef2a6/general" style={{ color: '#fda47e' }}>Discussion</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="/#contact" style={{ color: '#fda47e' }}>Contact</a>
+                                <a class="nav-link" href="/client/#contact" style={{ color: '#fda47e' }}>Contact</a>
                             </li>
                         </ul>
 
@@ -39,17 +39,17 @@ export default function Navbar() {
                             </a>
                             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownUser2" data-popper-placement="top-end">
 
-                                {/* <li><a class="dropdown-item" href="/addadmin">Add New Admin</a></li> */}
-                                {role.map((element) => element == 'admin' && <li><a class="dropdown-item" href="/addadmin">Add Admin</a></li>)}
-                                <li><a class="dropdown-item" href={`/profile/${authData?._id}`}>Profile</a></li>
+                               
+                                {role.map((element) => element === 'admin' && <li><a class="dropdown-item" href="/client/addadmin">Add Admin</a></li>)}
+                                <li><a class="dropdown-item" href={`/client/profile/${authData?._id}`}>Profile</a></li>
                                 <li><hr class="dropdown-divider" /></li>
                                 <li><a class="dropdown-item" href="/" onClick={() => dispatch(logout())}>Sign out</a></li>
                             </ul>
                         </div> </ul> : <ul class="nav navbar-nav ms-auto"><li class="nav-item">
-                            <a class="nav-link" href="/signup" style={{ color: '#fda47e' }}>Sign Up</a>
+                            <a class="nav-link" href="/client/signup" style={{ color: '#fda47e' }}>Sign Up</a>
                         </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="/login" style={{ color: '#fda47e' }}>Login</a>
+                                <a class="nav-link" href="/client/login" style={{ color: '#fda47e' }}>Login</a>
                             </li></ul>}
                     </div>
                 </div>

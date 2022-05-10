@@ -6,16 +6,6 @@ export const addComment = (post) => async (dispatch) => {
 
         dispatch({ type: 'ADD_COMMENT', payload: data });
 
-        // if (data) {
-        //     if (data.s3Result) {
-                
-        //         window.location.replace(`/postdetail/${post_id}`)
-        //         return;
-        //     }
-
-        // }
-        // window.location.replace(`/postdetail/${post_id}`)
-
     } catch (error) {
         console.log(error)
     }

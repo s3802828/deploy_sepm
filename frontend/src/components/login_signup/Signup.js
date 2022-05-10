@@ -131,7 +131,7 @@ export default function Signup() {
                                     <button type="submit" class="btn btn-primary btn-lg w-100">Sign up</button>
                                 </div>
                                 <div class="row d-flex justify-content-center">
-                                    <a href="/login" class="text-center">Already have an account? Log in</a>
+                                    <a href="/client/login" class="text-center">Already have an account? Log in</a>
                                 </div>
                             </form>
                         </div>

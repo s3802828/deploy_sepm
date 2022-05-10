@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const endPoint = "/";
+const endPoint = "";
 
 export const fetchLang = () => axios.get(endPoint + '/cheatsheet/languages');
 

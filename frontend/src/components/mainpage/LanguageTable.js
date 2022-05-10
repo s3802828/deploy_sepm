@@ -42,7 +42,7 @@ export default function LanguageTable({ languages }) {
                                 })}
                             </div>
                             {role && role.includes('admin') &&<div class="ms-auto me-2">
-                                <a class="btn mx-3" href={`/addfunction/${topic_id.language_id}`}><i class="bi bi-plus-circle"> <strong>Add New Function</strong></i></a>
+                                <a class="btn mx-3" href={`/client/addfunction/${topic_id.language_id}`}><i class="bi bi-plus-circle"> <strong>Add New Function</strong></i></a>
                             </div> }
                         </div>
                     </tr>
@@ -55,7 +55,7 @@ export default function LanguageTable({ languages }) {
                                     <div class="d-flex">
                                         <h5 class="ml-3 mt-2">{element.name}</h5>
                                         <span class="ms-auto">
-                                            <a class="btn mx-3" href={`/discussion/${topic_id.language_id}/${element._id}`}><i class="bi bi-link-45deg"> <strong><u>Discussion</u></strong></i></a>
+                                            <a class="btn mx-3" href={`/client/discussion/${topic_id.language_id}/${element._id}`}><i class="bi bi-link-45deg"> <strong><u>Discussion</u></strong></i></a>
                                         </span>
                                     </div>
                                 </th>

@@ -94,7 +94,7 @@ export default function PostDetailPage() {
                             <p className='my-auto'>Post by: </p>
                             <img src={`${post_detail[0]?.users[0]?.avatar ? `https://csfunctions-web-app.s3.amazonaws.com/${post_detail[0]?.users[0]?.avatar}` : 'http://cdn.onlinewebfonts.com/svg/img_24787.png'} `}
                                 class="img rounded-circle m-2" width="30" height="30" alt=""></img>
-                            <a href={`/profile/${post_detail[0]?.user_id}`} className='my-auto' style={{ "text-decoration": "none", color: "black" }}>
+                            <a href={`/client/profile/${post_detail[0]?.user_id}`} className='my-auto' style={{ "text-decoration": "none", color: "black" }}>
                                 {post_detail[0]?.users[0]?.name}&nbsp;({post_detail[0]?.users[0]?.username})
                             </a>
                             &nbsp;&nbsp;&nbsp;
@@ -109,7 +109,7 @@ export default function PostDetailPage() {
                                     {role && role.includes('admin') && <button type='button' className='btn btn-danger ms-auto mx-1' style={{ width: '160px', height: '40px' }} onClick={(e) => { e.preventDefault(); dispatch(deletePost(post_id)); window.location.replace(`/discussion/${post_detail[0].languages[0]._id}/general`) }}>
                                         DELETE THIS POST
                                     </button>}
-                                    {authData?._id === post_detail[0]?.user_id && <a type='button' href={`/editpost/${post_detail[0]?._id}`} style={{ width: '160px', height: '40px' }} class="btn btn-warning ms-auto my-1">EDIT THIS POST</a>}
+                                    {authData?._id === post_detail[0]?.user_id && <a type='button' href={`/client/editpost/${post_detail[0]?._id}`} style={{ width: '160px', height: '40px' }} class="btn btn-warning ms-auto my-1">EDIT THIS POST</a>}
                                 </div>
                             </div>
                         </div>

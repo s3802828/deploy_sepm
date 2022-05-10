@@ -3,8 +3,9 @@ import { UNSAVE, SAVE, FETCH_ALL, FETCH_BY_LANGUAGE, FETCH_BY_TOPIC, SEARCH_FUNC
 
 export const getLanguage = () => async (dispatch) => {
     try {
-
+        console.log("getLanguage")
         const { data } = await api.fetchLang();
+        
 
         dispatch({ type: FETCH_ALL, payload: data });
 

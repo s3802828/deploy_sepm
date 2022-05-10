@@ -8,17 +8,17 @@ export default function Footer() {
                     </a>
                 </li>
                 <li className='nav-item'>
-                    <a href='/#about' className='nav-link px-2 text-muted'>
+                    <a href='/client/#about' className='nav-link px-2 text-muted'>
                         About
                     </a>
                 </li>
                 <li className='nav-item'>
-                    <a href='/cheatsheet' className='nav-link px-2 text-muted'>
+                    <a href='/client/cheatsheet/624bfee26f2c17b5768ef2a6' className='nav-link px-2 text-muted'>
                         Cheat Sheet
                     </a>
                 </li>
                 <li className='nav-item'>
-                    <a href='/discussion' className='nav-link px-2 text-muted'>
+                    <a href='/client/discussion/624bfee26f2c17b5768ef2a6/general' className='nav-link px-2 text-muted'>
                         Discussion
                     </a>
                 </li>

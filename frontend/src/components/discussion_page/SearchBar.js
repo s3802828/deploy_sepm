@@ -47,7 +47,7 @@ export default function SearchBar({ category_id, language_id }) {
                                 <tbody>
                                     {searchResult && searchResult.map((element, index) => <tr>
                                         <th scope="row">{index + 1}</th>
-                                        <td><a href={`/postdetail/${element._id}`} style={{textDecoration: "none", color:"black"}}>
+                                        <td><a href={`/client/postdetail/${element._id}`} style={{textDecoration: "none", color:"black"}}>
                                             <strong>{element.title}</strong><br />{element.content.length > 200
                                                 ? element.content.substring(0, 199) + '......'
                                                 : element.content}

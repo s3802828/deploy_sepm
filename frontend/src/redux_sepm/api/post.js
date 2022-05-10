@@ -1,5 +1,5 @@
 import axios from 'axios';
-const endPoint = "/"
+const endPoint = ""
 export const getPostByTopic = (cate_id) => axios.get(endPoint + "/post/get/" + cate_id)
 export const getGeneralPost = (lang_id) => axios.get(endPoint + "/post/get/general/" + lang_id)
 export const getPopularPost = (lang_id) => axios.get(endPoint + "/post/get/popular/" + lang_id)

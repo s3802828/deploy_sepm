@@ -7,7 +7,6 @@ export default function UserPost({ post, userInfo }) {
                 <div class="card-header text-muted">
                     <div>
                         <a
-                            //href={`/profile/${props.element.user_id}`}
                             href = "#"
                             style={{ "text-decoration": "none", color: "black" }}
                         >
@@ -18,7 +17,7 @@ export default function UserPost({ post, userInfo }) {
                         </span>
                     </div>
                 </div>
-                <a href={`/postdetail/${post._id}`} style={{ "textDecoration": "none", color: "black" }}>
+                <a href={`/client/postdetail/${post._id}`} style={{ "textDecoration": "none", color: "black" }}>
                     <div class="card-body">
                         <h3 class="card-title">
                             {post.title}
