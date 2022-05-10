@@ -59,9 +59,10 @@ exports.updatePost = function (req, res) {
 
             console.log("Found comment")
             if (result) {
-                //Remove current image from storage 
-                deleteFile(result.images, bucketName);
-
+                if (result.images) {
+                    //Remove current image from storage 
+                    deleteFile(result.images, bucketName);
+                }
                 postModel.findByIdAndUpdate({
                     _id: req.body._id
                 }, {
@@ -240,7 +241,6 @@ exports.fetchCommentForPost = async (req, res) => {
             console.log(error)
             return res.send([])
         } else {
-            console.log(data)
             return res.send(data)
         }
     })
