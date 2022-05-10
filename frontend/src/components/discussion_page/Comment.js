@@ -130,7 +130,7 @@ export default function Comment({ comment, post_id }) {
                                                     </div>
                                                 </div>
                                                 <div class="d-flex my-3">
-                                                    <button type="button" class="btn btn-danger me-auto" onClick={() => { dispatch(deleteComment(comment._id)); window.location.replace(`/client/postdetail/${commentData?.post_id}`) }}>Delete</button>
+                                                    <button type="button" class="btn btn-danger me-auto" onClick={() => { dispatch(deleteComment(comment._id)); window.location.replace(`/client/postdetail/${post_id}`) }}>Delete</button>
 
                                                     <button type="button" class="btn btn-light me-2" onClick={() => setEdit(!edit)}>Cancel</button>
                                                     <button type="submit" class="btn btn-primary me-2" >Save</button>

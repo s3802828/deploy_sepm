@@ -95,9 +95,9 @@ export default function AddPost({ lang, language_id, topic_id }) {
         if (postData.images != null) {
             dataArray.append("images", postData.images);
         }
-
-        dispatch(addPost(dataArray))
-        window.location.replace(`/client/discussion/${language_id}/${topic_id}`)
+        console.log(postData.images)
+        //dispatch(addPost(dataArray))
+        //window.location.replace(`/client/discussion/${language_id}/${topic_id}`)
     }
 
     return (

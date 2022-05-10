@@ -9,8 +9,7 @@ var mongoose = require('mongoose');
 const bucketName = "csfunctions-web-app/postUploads"
 
 exports.addPost = function (req, res) {
-    console.log(req.body)
-
+    console.log(req.file)
     if (req.file) {
         const file = req.file;
         postModel.create({

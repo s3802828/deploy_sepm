@@ -6,7 +6,7 @@ var multer = require('multer');
 
 var storage = multer.diskStorage({
     destination: function (req, file, cb) {
-        cb(null, './../csfunction_sepm/public/commentUploads')
+        cb(null, './../../frontend/public/commentUploads')
     }
 
 })
