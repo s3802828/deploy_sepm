@@ -42,15 +42,13 @@ export default function DiscussionPage() {
                     </div>
 
                 </div>
-                {/* <div className="row justify-content-center my-3">
-                    <div className="col-7"><SearchBar category_id={topic_id} language_id={language_id} /></div> */}
                 <div className="row my-3 d-flex justify-content-between">
                     <div class="col-2">
                         <button type="button" class="btn" data-bs-toggle="dropdown" aria-expanded="false">
                             <i class="bi bi-filter" />Language
                         </button>
                         <ul class="dropdown-menu">
-                            {languageList.map((element) => <li><a class="dropdown-item" href={`/discussion/${element._id}/general`}>{element.name}</a></li>)}
+                            {languageList.map((element) => <li><a class="dropdown-item" href={`/client/discussion/${element._id}/general`}>{element.name}</a></li>)}
                         </ul>
                     </div>
 

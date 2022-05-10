@@ -86,7 +86,7 @@ export default function Comment({ comment, post_id }) {
                             <div className="d-flex">
                                 <img src={`${comment?.users[0]?.avatar ? `https://csfunctions-web-app.s3.amazonaws.com/${comment?.users[0]?.avatar}` : 'http://cdn.onlinewebfonts.com/svg/img_24787.png'} `}
                                     class="img rounded-circle m-2" width="40" height="40" alt=""></img>
-                                <a href={`/profile/${comment?.user_id}`} className='my-auto' style={{ "text-decoration": "none", color: "black" }}>
+                                <a href={`/client/profile/${comment?.user_id}`} className='my-auto' style={{ "text-decoration": "none", color: "black" }}>
                                     {comment?.users[0]?.name}&nbsp;({comment?.users[0]?.username})</a>
                                 &nbsp;&nbsp;&nbsp;&nbsp;
                                 <p className='my-auto'>Last update: {moment(comment?.updatedAt).fromNow()}</p>
@@ -98,7 +98,7 @@ export default function Comment({ comment, post_id }) {
                                             <button type="button" class="btn btn-primary ms-auto dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"></button>
                                             <ul class="dropdown-menu">
                                                 <li><button class="dropdown-item" onClick={() => setEdit(true)}>Edit</button></li>
-                                                <li><button class="dropdown-item" onClick={() => { dispatch(deleteComment(commentData._id)); window.location.replace("/postdetail") }}>Delete</button></li>
+                                                <li><button class="dropdown-item" onClick={() => { dispatch(deleteComment(commentData._id)); window.location.replace(`/client/postdetail/${post_id}`) }}>Delete</button></li>
                                             </ul>
                                         </div>
                                     )}
