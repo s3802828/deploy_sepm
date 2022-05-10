@@ -18,14 +18,14 @@ export default function EditPost() {
             .trim()
             .required('Name is required')
             .matches(
-                /^(?![ ]+$)[a-zA-Z .]*$/,
+                /^(?!()[ ]+$)[a-zA-Z0-9 .]*$/,
                 'Name must only contain letters and space'
             ),
         content: Yup.string()
             .trim()
             .required('Description is required')
             .matches(
-                /^[a-zA-Z0-9 ?,.$'"-:+_();@!%*#?&\/\\(\r\n|\r|\n)]+$/,
+                /^[a-zA-Z0-9 ?,.$'"-:+_()=;@!%*#?&\/\\(\r\n|\r|\n)]+$/,
                 'Content cannot contain certain special characters. Be careful with apostrophe. The valid one is " \' "'
             ),
         category_id: Yup.string().test(
@@ -105,7 +105,6 @@ export default function EditPost() {
     useEffect(() => {
         if (post_detail[0]?.user_id && (authData?._id != post_detail[0]?.user_id)) {
             window.location.replace(`/`)
-            console.log("should reload")
         }
     }, [authData, post_detail])
 
