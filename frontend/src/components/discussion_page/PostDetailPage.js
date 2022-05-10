@@ -101,15 +101,17 @@ export default function PostDetailPage() {
                             <p className='my-auto'>Last Updated: {moment(post_detail[0]?.updatedAt).fromNow()}</p>
                         </div>
                         <div className="row d-flex">
-                            <div className='col'>
+                            <div className='col-md-7 col'>
                                 <h2>{post_detail[0]?.title}</h2>
                             </div>
-                            <div className='col-md-5 col justify-content-end align-items-center'>
-                                <div className='d-flex'>
-                                    {role && role.includes('admin') && <button type='button' className='btn btn-danger ms-auto mx-1' style={{ width: '160px', height: '40px' }} onClick={(e) => { e.preventDefault(); dispatch(deletePost(post_id)); window.location.replace(`/client/discussion/${post_detail[0].languages[0]._id}/general`) }}>
+                            <div className='col-md-5 col d-flex justify-content-end align-items-center'>
+                                <div className='ms-auto'>
+                                    {role && role.includes('admin') && <button type='button' className='btn btn-danger mx-1' style={{ width: '160px', height: '40px' }}
+                                        onClick={(e) => { e.preventDefault(); dispatch(deletePost(post_id)); window.location.replace(`/discussion/${post_detail[0].languages[0]._id}/general`) }}>
                                         DELETE THIS POST
                                     </button>}
-                                    {authData?._id === post_detail[0]?.user_id && <a type='button' href={`/client/editpost/${post_detail[0]?._id}`} style={{ width: '160px', height: '40px' }} class="btn btn-warning ms-auto my-1">EDIT THIS POST</a>}
+                                    {authData?._id === post_detail[0]?.user_id && <a type='button' href={`/editpost/${post_detail[0]?._id}`} style={{ width: '160px', height: '40px' }}
+                                        class="btn btn-warning my-1">EDIT THIS POST</a>}
                                 </div>
                             </div>
                         </div>

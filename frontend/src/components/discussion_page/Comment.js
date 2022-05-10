@@ -83,76 +83,61 @@ export default function Comment({ comment, post_id }) {
                 <div class="row justify-content-center my-1">
                     <div class="col-10" style={{ backgroundColor: "#adab9a" }}>
                         <div class="row justify-content-between ms-3">
-                            <div class="col-6 d-flex align-items-center justify-content-start">
-                                <a href={`/client/profile/${comment?.user_id}`} style={{ "text-decoration": "none", color: "black" }}><img src={`${comment?.users[0]?.avatar ? `https://csfunctions-web-app.s3.amazonaws.com/${comment?.users[0]?.avatar}` : 'http://cdn.onlinewebfonts.com/svg/img_24787.png'} `}
+                            <div className="d-flex">
+                                <img src={`${comment?.users[0]?.avatar ? `https://csfunctions-web-app.s3.amazonaws.com/${comment?.users[0]?.avatar}` : 'http://cdn.onlinewebfonts.com/svg/img_24787.png'} `}
                                     class="img rounded-circle m-2" width="40" height="40" alt=""></img>
-                                    <label id="commentOwner">{comment?.users[0]?.name}&nbsp;({comment?.users[0]?.username})</label></a>
-                            </div>
-                            <div class="col-6 d-flex align-items-center justify-content-end">
-                                {authData && authData._id === comment?.user_id && (edit === true
-                                    ? <div></div>
-                                    :
-                                    <div class="dropend d-flex">
-                                        <button type="button" class="btn btn-primary ms-auto dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"></button>
-                                        <ul class="dropdown-menu">
-                                            <li><button class="dropdown-item" onClick={() => setEdit(true)}>Edit</button></li>
-                                            <li><button class="dropdown-item" onClick={() => { dispatch(deleteComment(commentData._id)); window.location.replace(`/client/postdetail/${post_id}`) }}>Delete</button></li>
-                                        </ul>
-                                    </div>
-                                )}
-                                {
-                                    authData && authData._id !== comment?.user_id && role.includes('admin') &&
-                                    <div className="d-flex">
-                                        <button type="button" class="btn btn-danger ms-auto" onClick={() => { dispatch(deleteComment(comment._id)); window.location.replace(`/client/postdetail/${post_id}`) }}>Delete</button>
-                                    </div>
-                                }
-                            </div>
-                            <div class="row justify-content-center">
-                                <div class="col-12">
-                                    <div class="row justify-content-end">
-                                        <div class="text-end my-2 mx-2">
-                                            Last update: {moment(comment?.updatedAt).fromNow()}
+                                <a href={`/profile/${comment?.user_id}`} className='my-auto' style={{ "text-decoration": "none", color: "black" }}>
+                                    {comment?.users[0]?.name}&nbsp;({comment?.users[0]?.username})</a>
+                                &nbsp;&nbsp;&nbsp;&nbsp;
+                                <p className='my-auto'>Last update: {moment(comment?.updatedAt).fromNow()}</p>
+                                <div className="ms-auto my-auto">
+                                    {authData && authData._id === comment?.user_id && (edit == true
+                                        ? <div></div>
+                                        :
+                                        <div class="dropend d-flex">
+                                            <button type="button" class="btn btn-primary ms-auto dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"></button>
+                                            <ul class="dropdown-menu">
+                                                <li><button class="dropdown-item" onClick={() => setEdit(true)}>Edit</button></li>
+                                                <li><button class="dropdown-item" onClick={() => { dispatch(deleteComment(commentData._id)); window.location.replace("/postdetail") }}>Delete</button></li>
+                                            </ul>
                                         </div>
-                                    </div>
+                                    )}
+                                </div>
+                            </div>
+                            <div class="row justify-content-center my-1">
+                                {edit === true
+                                    ? <form encType="multipart/form-data" onSubmit={handleSubmit(submit)}>
+                                        <textarea name="content" defaultValue={comment?.content} className={`form-control ${errors.content
+                                            ? 'is-invalid'
+                                            : ''}`} {...register('content')} onChange={(e) => setCommentData({ ...commentData, content: e.target.value })}>
+                                            {/* Comment */}
+                                        </textarea>
+                                        <div className='invalid-feedback'>
+                                            {errors.content?.message}
+                                        </div>
+                                        <input name="_id" type="hidden" value={comment._id} />
+                                        <div class="custom-file my-2">
+                                            <input type="file" name="images" className={`custom-file-input ${errors.images
+                                                ? 'is-invalid'
+                                                : ''}`} {...register('images')} onChange={(e) => { console.log(e.target.files[0]); setCommentData({ ...commentData, images: e.target.files[0] }) }} class="custom-file-input" id="inputGroupFile01" />
+                                            <div className='invalid-feedback'>
+                                                {errors.images?.message}
+                                            </div>
+                                        </div>
+                                        <div class="d-flex my-3">
+                                            <button type="button" class="btn btn-danger me-auto" onClick={() => { dispatch(deleteComment(comment._id)); window.location.replace(`/client/postdetail/${post_id}`) }}>Delete</button>
 
-                                    <div class="row justify-content-center my-1">
-                                        {edit === true
-                                            ? <form encType="multipart/form-data" onSubmit={handleSubmit(submit)}>
-                                                <textarea name="content" defaultValue={comment?.content} className={`form-control ${errors.content
-                                                    ? 'is-invalid'
-                                                    : ''}`} {...register('content')} onChange={(e) => setCommentData({ ...commentData, content: e.target.value })}>
-                                                    {/* Comment */}
-                                                </textarea>
-                                                <div className='invalid-feedback'>
-                                                    {errors.content?.message}
-                                                </div>
-                                                <input name="_id" type="hidden" value={comment._id} />
-                                                <div class="custom-file my-2">
-                                                    <input type="file" name="images" className={`custom-file-input ${errors.images
-                                                        ? 'is-invalid'
-                                                        : ''}`} {...register('images')} onChange={(e) => { console.log(e.target.files[0]); setCommentData({ ...commentData, images: e.target.files[0] }) }} class="custom-file-input" id="inputGroupFile01" />
-                                                    <div className='invalid-feedback'>
-                                                        {errors.images?.message}
-                                                    </div>
-                                                </div>
-                                                <div class="d-flex my-3">
-                                                    <button type="button" class="btn btn-danger me-auto" onClick={() => { dispatch(deleteComment(comment._id)); window.location.replace(`/client/postdetail/${post_id}`) }}>Delete</button>
+                                            <button type="button" class="btn btn-light me-2" onClick={() => setEdit(!edit)}>Cancel</button>
+                                            <button type="submit" class="btn btn-primary me-2" >Save</button>
 
-                                                    <button type="button" class="btn btn-light me-2" onClick={() => setEdit(!edit)}>Cancel</button>
-                                                    <button type="submit" class="btn btn-primary me-2" >Save</button>
-
-                                                </div>
-                                            </form> :
-                                            <p>{comment?.content && nl2br(comment?.content)}</p>
-                                        }
-                                        {comment?.images && comment?.images != "" ? <img className="mb-2" style={{ maxWidth: '500px', maxHeight: '500px' }}
-                                        src={`https://csfunctions-web-app.s3.amazonaws.com/${comment.images}`}></img>
-                                            : <></>}
-                                    </div>
-
-                                </div >
-
-                            </div >
+                                        </div>
+                                    </form> :
+                                    <p>{comment?.content && nl2br(comment?.content)}</p>
+                                }
+                                {comment?.images && comment?.images != "" ? <img className="mb-2" style={{ maxWidth: '400px', maxHeight: '400px' }}
+                                    src={`https://csfunctions-web-app.s3.amazonaws.com/${comment.images}`}></img>
+                                    : <></>}
+                            </div>
                         </div >
                     </div >
                 </div >
