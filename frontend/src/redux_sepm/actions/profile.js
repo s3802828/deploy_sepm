@@ -27,6 +27,7 @@ export const getSavedFunction = (id) => async (dispatch) => {
 
 export const updateAva = (user_id, avatar) => async (dispatch) => {
     try {
+        console.log("updateAvaaaaa")
         const {data} = await api.updateAvatar(user_id, avatar);
 
         dispatch({ type: UPDATE_AVATAR, payload: data });
