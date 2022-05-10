@@ -19,7 +19,7 @@ export default function AddFunction() {
             .trim()
             .required('Name is required')
             .matches(
-                /^(?!(),[ ]+$)[a-zA-Z .]*$/,
+                /^(?!(),[ ]+$)[a-zA-Z0-9 .]*$/,
                 'Name must only contain letters and space'
             ),
         params: Yup.string()

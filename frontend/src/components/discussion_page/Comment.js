@@ -90,7 +90,7 @@ export default function Comment({ comment, post_id }) {
                                         <button type="button" class="btn btn-primary ms-auto dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"></button>
                                         <ul class="dropdown-menu">
                                             <li><button class="dropdown-item" onClick={() => setEdit(true)}>Edit</button></li>
-                                            <li><button class="dropdown-item" onClick={() => { dispatch(deleteComment(commentData._id)); window.location.replace(`/client/postdetail/${commentData?.post_id}`) }}>Delete</button></li>
+                                            <li><button class="dropdown-item" onClick={() => { dispatch(deleteComment(commentData._id)); window.location.replace(`/client/postdetail/${post_id}`) }}>Delete</button></li>
                                         </ul>
                                     </div>
                                 )}

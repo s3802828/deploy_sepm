@@ -18,7 +18,7 @@ export default function EditPost() {
             .trim()
             .required('Name is required')
             .matches(
-                /^(?!()[ ]+$)[a-zA-Z .]*$/,
+                /^(?!()[ ]+$)[a-zA-Z0-9 .]*$/,
                 'Name must only contain letters and space'
             ),
         content: Yup.string()
@@ -210,7 +210,7 @@ export default function EditPost() {
 
                             <div className="d-grid gap-2 d-flex justify-content-end">
                                 &nbsp;&nbsp;
-                                <button type='button' className='btn btn-danger' onClick={(e) => { e.preventDefault(); dispatch(deletePost(post_id)); window.location.replace(`/discussion/${post_detail[0].languages[0]._id}/general`) }}>
+                                <button type='button' className='btn btn-danger' onClick={(e) => { e.preventDefault(); dispatch(deletePost(post_id)); window.location.replace(`/client/discussion/${post_detail[0].languages[0]._id}/general`) }}>
                                     DELETE THIS POST
                                 </button>
                                 <button type='submit' className='btn btn-success'

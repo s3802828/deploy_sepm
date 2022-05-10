@@ -17,7 +17,7 @@ export default function AddPost({ lang, language_id, topic_id }) {
             .trim()
             .required('Name is required')
             .matches(
-                /^(?!()[ ]+$)[a-zA-Z .]*$/,
+                /^(?!()[ ]+$)[a-zA-Z0-9 .]*$/,
                 'Name must only contain letters and space'
             ),
         content: Yup.string()

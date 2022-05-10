@@ -16,7 +16,7 @@ export default function EditFunction({ currFunction, category_id }) {
             .trim()
             .required('Name is required')
             .matches(
-                /^(?!(),[ ]+$)[a-zA-Z .]*$/,
+                /^(?!(),[ ]+$)[a-zA-Z0-9 .]*$/,
                 'Name must only contain letters and space'
             ),
         params: Yup.string()
@@ -96,7 +96,7 @@ export default function EditFunction({ currFunction, category_id }) {
         // e.preventDefault();
         console.log(functionData)
         dispatch(updateFunction(functionData))
-        window.location.replace(`/cheatsheet/${topic_id.language_id}`)
+        window.location.replace(`/client/cheatsheet/${topic_id.language_id}`)
     }
 
     return (
@@ -227,7 +227,7 @@ export default function EditFunction({ currFunction, category_id }) {
                                     <br />
                                     <div class="row ms-1">
                                         <div class="d-grid gap-2 d-flex justify-content-end">
-                                            <button type="button" class="btn btn-danger" onClick={() => { dispatch(deleteFunction(functionData._id)); window.location.replace(`/cheatsheet/${topic_id.language_id}`) }}>Delete Function</button>
+                                            <button type="button" class="btn btn-danger" onClick={() => { dispatch(deleteFunction(functionData._id)); window.location.replace(`/client/cheatsheet/${topic_id.language_id}`) }}>Delete Function</button>
                                             <button type="submit" class="btn btn-success"
                                             onClick={() => {
                                                 unregister('name', { keepDefaultValue: true, });
