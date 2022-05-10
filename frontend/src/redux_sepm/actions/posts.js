@@ -47,12 +47,11 @@ export const deletePost = (deletePost) => async (dispatch) => {
 export const getPostDetail = (id) => async (dispatch) => {
     try {
         const { data } = await api.fetchPostDetail(id);
-
-        dispatch ({type: FETCH_POST_DETAIL, payload: data});
-
         if (!data) {
             window.location.replace("/*")
         }
+
+        dispatch ({type: FETCH_POST_DETAIL, payload: data});
     } catch (error) {
         console.log(error.message)
     }

@@ -18,7 +18,7 @@ export default function Navbar() {
                                 <a class="nav-link active" aria-current="page" href="/" style={{ color: '#fda47e' }}>Home</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="/client/#about" style={{ color: '#fda47e' }}>About</a>
+                                <a class="nav-link" href="/#about" style={{ color: '#fda47e' }}>About</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" aria-current="page" href="/client/cheatsheet/624bfee26f2c17b5768ef2a6" style={{ color: '#fda47e' }}>Cheat Sheet</a>
@@ -27,7 +27,7 @@ export default function Navbar() {
                                 <a class="nav-link" href="/client/discussion/624bfee26f2c17b5768ef2a6/general" style={{ color: '#fda47e' }}>Discussion</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="/client/#contact" style={{ color: '#fda47e' }}>Contact</a>
+                                <a class="nav-link" href="/#contact" style={{ color: '#fda47e' }}>Contact</a>
                             </li>
                         </ul>
 

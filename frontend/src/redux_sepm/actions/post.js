@@ -5,6 +5,9 @@ export const getPostFromTopic = (id) => async (dispatch) => {
     try {
 
         const { data } = await api.getPostByTopic(id);
+        if (!data) {
+            window.location.replace("/*")
+        }
 
         dispatch({ type: FETCH_BY_TOPIC, payload: data });
 
@@ -17,6 +20,9 @@ export const getGeneralPosts = (id) => async (dispatch) => {
     try {
 
         const { data } = await api.getGeneralPost(id);
+        if (!data) {
+            window.location.replace("/*")
+        }
 
         dispatch({ type: FETCH_GENERAL, payload: data });
 
@@ -29,6 +35,9 @@ export const getPopularPosts = (id) => async (dispatch) => {
     try {
 
         const { data } = await api.getPopularPost(id);
+        if (!data) {
+            window.location.replace("/*")
+        }
 
         dispatch({ type: FETCH_POPULAR, payload: data });
 

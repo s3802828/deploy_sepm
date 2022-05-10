@@ -123,6 +123,10 @@ exports.deletePost = function (req, res) {
 }
 
 exports.fetchPostDetail = async (req, res) => {
+    const isValidId = mongoose.Types.ObjectId.isValid(req.params.id)
+    if(!isValidId){
+        return res.send(undefined)
+    }
     postModel.aggregate([
         { $match: { _id: mongoose.Types.ObjectId(req.params.id) } },
         {
@@ -211,6 +215,10 @@ exports.fetchPostDetail = async (req, res) => {
 }
 
 exports.fetchCommentForPost = async (req, res) => {
+    const isValidId = mongoose.Types.ObjectId.isValid(req.params.post_id)
+    if(!isValidId){
+        return res.send(undefined)
+    }
     commentModel.aggregate([
         { $match: { post_id: mongoose.Types.ObjectId(req.params.post_id) } },
         {

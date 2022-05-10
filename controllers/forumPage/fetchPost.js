@@ -6,6 +6,10 @@ var categoryModel = require('../../models/category').category;
 
 
 exports.fetchPostsForTopic =  (req, res) =>  {
+    const isValidId = mongoose.Types.ObjectId.isValid(req.params.category_id)
+    if(!isValidId){
+        return res.send(undefined)
+    }
     postsModel.aggregate([
         {$match:{category_id: mongoose.Types.ObjectId(req.params.category_id)}},
         {$lookup: {
@@ -39,6 +43,10 @@ exports.fetchPostsForTopic =  (req, res) =>  {
 }
 
 exports.fetchGeneralPosts = async (req, res) => {
+    const isValidId = mongoose.Types.ObjectId.isValid(req.params.language_id)
+    if(!isValidId){
+        return res.send(undefined)
+    }
     const topics = await categoryModel.find({
         language_id: req.params.language_id,
     }).distinct('_id');
@@ -76,6 +84,10 @@ exports.fetchGeneralPosts = async (req, res) => {
 }
 
 exports.fetchPopularPosts = async (req, res) => {
+    const isValidId = mongoose.Types.ObjectId.isValid(req.params.language_id)
+    if(!isValidId){
+        return res.send(undefined)
+    }
     const topics = await categoryModel.find({
         language_id: req.params.language_id,
     }).distinct('_id');

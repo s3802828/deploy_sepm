@@ -8,7 +8,7 @@ export default function Footer() {
                     </a>
                 </li>
                 <li className='nav-item'>
-                    <a href='/client/#about' className='nav-link px-2 text-muted'>
+                    <a href='/#about' className='nav-link px-2 text-muted'>
                         About
                     </a>
                 </li>

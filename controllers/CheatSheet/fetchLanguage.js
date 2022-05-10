@@ -1,3 +1,4 @@
+const { default: mongoose } = require('mongoose');
 const { category } = require('../../models/category');
 
 var languageModel = require('../../models/language').language;
@@ -11,29 +12,45 @@ exports.fetchAllLanguages = (req, res) => {
             console.log(error)
             return res.send([])
         } else {
-            return res.send(data)
+            if (data) {
+                return res.send(data)
+            }
+
         }
     })
 }
 
 exports.fetchTopicsForLanguage = async (req, res) => {
-
-    const language = await languageModel.findOne({
-        _id: req.params.language_id,
-    });
-
-    categoryModel.find({ language_id: language._id }, function (error, data) {
+    const isValidId = mongoose.isValidObjectId(req.params.language_id)
+    if(!isValidId){
+        return res.send(undefined)
+    } 
+    // const ObjectId = mongoose.Types.ObjectId
+    // const newId = new ObjectId(req.params.language_id)
+    // else {
+    
+    categoryModel.find({ language_id:  req.params.language_id}, function (error, data) {
         if (error) {
             console.log(error)
             return res.send([])
         } else {
-            return res.send(data)
+            if (data) {
+                return res.send(data)
+            } else {
+                return res.send(undefined)
+            }
+
         }
-    }).sort({name: 1})
+    }).sort({ name: 1 })
+    // }
 
 }
 
 exports.fetchFunctionsForTopic = async (req, res) => {
+    const isValidId = mongoose.isValidObjectId(req.params.language_id)
+    if(!isValidId){
+        return res.send(undefined)
+    } 
 
     const language = await languageModel.findOne({
         _id: req.params.language_id,
@@ -47,18 +64,21 @@ exports.fetchFunctionsForTopic = async (req, res) => {
 
 
     functionModel.find({
-        category_id: { "$in" : 
-            topics
-         }
-            
+        category_id: {
+            "$in":
+                topics
+        }
+
     }, function (error, data) {
         if (error) {
             console.log(error)
             return res.send([])
         } else {
-            return res.send(data)
+            if (data) {
+                return res.send(data)
+            }
         }
-    }).sort({name: 1})
+    }).sort({ name: 1 })
 
 }
 
@@ -67,18 +87,24 @@ exports.fetchFunctionDetail = async (req, res) => {
         if (error) {
             return res.send(error)
         } else {
-            res.send(result)
+            if (result) {
+                res.send(result)
+            }
+
         }
-        
+
     })
 }
 
 exports.searchByTopic = async (req, res) => {
-    categoryModel.find({language_id: req.params.language_id, name: {"$regex": `${req.params.keyword}`, "$options": "i"}}, function (error, result) {
+    categoryModel.find({ language_id: req.params.language_id, name: { "$regex": `${req.params.keyword}`, "$options": "i" } }, function (error, result) {
         if (error) {
             return res.send(error)
         } else {
-            res.send(result)
+            if (result) {
+                res.send(result)
+            }
+
         }
     })
 }
@@ -93,13 +119,14 @@ exports.searchByFunction = async (req, res) => {
         language_id: language._id,
     }).distinct('_id');
 
-    functionModel.find({category_id: { $in : topics}, name: {"$regex": `${req.params.keyword}`, "$options": "i"}}, function (error, result) {
+    functionModel.find({ category_id: { $in: topics }, name: { "$regex": `${req.params.keyword}`, "$options": "i" } }, function (error, result) {
         if (error) {
             return res.send(error)
         } else {
             console.log("helloo")
-            res.send(result)
-            
+            if (result) {
+                res.send(result)
+            }
         }
     })
 }

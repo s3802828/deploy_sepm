@@ -12,7 +12,7 @@ exports.updateAvatar = function (req, res) {
     if (req.file) {
         const file = req.file;
 
-        userModel.findOne({ _id: mongoose.Types.ObjectId(req.params) }, async function (error, result) {
+        userModel.findOne({ _id: mongoose.Types.ObjectId(req.params.id) }, async function (error, result) {
 
             console.log("User")
             if (result) {
@@ -57,6 +57,10 @@ exports.updateAvatar = function (req, res) {
 }
 
 exports.fetchUser = (req, res) => {
+    const isValidId = mongoose.Types.ObjectId.isValid(req.params.user_id)
+    if(!isValidId){
+        return res.send(undefined)
+    }
     userModel.findOne({
         _id: mongoose.Types.ObjectId(req.params.user_id)
     }, ['-password'], function (error, data) {

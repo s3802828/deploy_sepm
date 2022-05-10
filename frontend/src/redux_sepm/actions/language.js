@@ -19,12 +19,13 @@ export const getTopicFromLang = (id) => async (dispatch) => {
 
         const { data } = await api.fetchTopicsForLanguage(id);
 
-        dispatch({ type: FETCH_BY_LANGUAGE, payload: data });
-
         if (!data) {
             window.location.replace("/*")
         }
 
+        dispatch({ type: FETCH_BY_LANGUAGE, payload: data });
+
+        
     } catch (error) {
         console.log(error.message);
     }

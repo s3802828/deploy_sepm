@@ -54,6 +54,9 @@ export const updateProfile = (updateProfile) => async (dispatch) => {
 export const fetchUser = (user_id) => async (dispatch) => {
     try {
         const { data } = await api.fetchUser(user_id);
+        if (!data) {
+            window.location.replace("/*")
+        }
 
         dispatch({ type: "FETCH_USER", payload: data });
     } catch (error) {

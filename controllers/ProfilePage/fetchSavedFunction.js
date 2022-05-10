@@ -22,6 +22,10 @@ var mongoose = require('mongoose');
 //     }).sort({name: 1})
 // }
 exports.fetchSavedFunction = async (req, res) => {
+    const isValidId = mongoose.Types.ObjectId.isValid(req.params.user_id)
+    if(!isValidId){
+        return res.send(undefined)
+    }
     const savedFunctionArray = await userModel.find({
         _id: mongoose.Types.ObjectId(req.params.user_id),
     }).distinct('savedFunction')
