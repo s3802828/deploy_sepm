@@ -8,7 +8,7 @@ export default function Navbar() {
         <div>
             <nav class="navbar navbar-expand-lg navbar-dark bg-dark" style={{ backgroundColor: '#3d3737', position: "absolute", top: 0, zIndex: 100, width: "100%" }}>
                 <div class="container-fluid">
-                    <a class="navbar-brand" href="#" style={{ color: '#fda47e' }}>CSFunction</a>
+                    <a class="navbar-brand" href="/" style={{ color: '#fda47e' }}>CSFunction</a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
@@ -40,7 +40,7 @@ export default function Navbar() {
                             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownUser2" data-popper-placement="top-end">
 
                                
-                                {role.map((element) => element === 'admin' && <li><a class="dropdown-item" href="/client/addadmin">Add Admin</a></li>)}
+                                {role && role?.includes('admin') && <li><a class="dropdown-item" href="/client/addadmin">Add Admin</a></li>}
                                 <li><a class="dropdown-item" href={`/client/profile/${authData?._id}`}>Profile</a></li>
                                 <li><hr class="dropdown-divider" /></li>
                                 <li><a class="dropdown-item" href="/" onClick={() => dispatch(logout())}>Sign out</a></li>

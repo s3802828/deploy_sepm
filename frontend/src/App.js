@@ -45,7 +45,7 @@ function App() {
             <Route exact path="/client/login" element={<Login />} />
             <Route exact path="/client/signup" element={<Signup />} />
             <Route exact path="/client/passwordchange" element={<PasswordChange />} />
-            <Route exact path="/client/editpost/:post_id" element={<EditPost />} />
+            {authData && <Route exact path="/client/editpost/:post_id" element={<EditPost />} />}
             <Route exact path="*" element={<PageNotFound />} />
           </Routes>
         </div>

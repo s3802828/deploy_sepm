@@ -62,7 +62,6 @@ export default function EditPost() {
         register,
         unregister,
         handleSubmit,
-        reset,
         formState: { errors },
     } = useForm({
         resolver: yupResolver(validationSchema),
@@ -102,6 +101,13 @@ export default function EditPost() {
             setTopicId(post_detail[0]?.category_id)
         }
     }, [post_detail])
+
+    useEffect(() => {
+        if (post_detail[0]?.user_id && (authData?._id != post_detail[0]?.user_id)) {
+            window.location.replace(`/`)
+            console.log("should reload")
+        }
+    }, [authData, post_detail])
 
     const topicList = useSelector((state) => state?.categories);
     console.log(postData._id)
