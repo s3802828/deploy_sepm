@@ -277,7 +277,7 @@ export function EditAvatar() {
 
     const validationSchema = Yup.object().shape({
         avatar: Yup.mixed()
-
+            .required('Image file is required')
             .test('fileSize', 'The file is too large. Maximum size is 8MB', (value) => {
                 if (!value.length) {
                     return true; // attachment is optional
@@ -312,7 +312,10 @@ export function EditAvatar() {
 
         const dataArray = new FormData();
 
-        dataArray.append("avatar", ava);
+        if (ava != null) {
+            dataArray.append("avatar", ava);
+        }
+
         dispatch(updateAva(authData._id, dataArray));
 
         console.log(ava, authData._id);
