@@ -2,9 +2,9 @@ const http = require('http');
 const app = require('./app');
 const server = http.createServer(app);
 const mongoose = require('mongoose');
-const { MONGO_URI } = process.env;
+const MONGO_URI = "mongodb+srv://giangle:root@cheatsheet.l6veb.mongodb.net/test";
 
-const { SERVER_PORT } = process.env;
+const SERVER_PORT = 9000;
 mongoose
     .connect(MONGO_URI)
 
