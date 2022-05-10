@@ -2,11 +2,15 @@ require('dotenv').config();
 const S3 = require('aws-sdk/clients/s3');
 const AWS = require('aws-sdk')
 const fs = require('fs')
+const AWS_BUCKET_NAME="csfunctions-web-app"
+const AWS_BUCKET_REGION="us-east-1"
+const AWS_ACCESS_KEY="AKIAW5EFHL2CT5GRE5YY"
+const AWS_SECRET_KEY="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"
 
-const {
-    AWS_BUCKET_REGION,
-    AWS_ACCESS_KEY,
-    AWS_SECRET_KEY } = process.env;
+// const {
+//     AWS_BUCKET_REGION,
+//     AWS_ACCESS_KEY,
+//     AWS_SECRET_KEY } = process.env;
 
 AWS.config.update({
     region: AWS_BUCKET_REGION,

@@ -5,11 +5,8 @@ var mongoose = require('mongoose');
 const bucketName = "csfunctions-web-app/commentUploads"
 
 exports.addComment = async function (req, res) {
-
-    // console.log(req.body);
-    // console.log(req.file);
-
     if (req.file) {
+        console.log(req.file)
         const file = req.file;
 
         const result = await commentModel.create({
@@ -67,19 +64,49 @@ exports.addComment = async function (req, res) {
 
     } else {
 
-        commentModel.create({
+        const result = await commentModel.create({
             post_id: req.body.post_id,
             content: req.body.content,
             user_id: req.body.user_id
-        }, function (err, result) {
-            if (err) {
-                console.log(err)
-            }
-
-            console.log(result)
-            res.send(result)
-
         })
+
+        if (result) {
+            commentModel.aggregate([
+                { $match: { post_id: mongoose.Types.ObjectId(req.body.post_id) } },
+                {
+                    $lookup: {
+                        from: "users",
+                        localField: "user_id",
+                        foreignField: "_id",
+                        as: "users"
+                    }
+                },
+                {
+                    $project: {
+                        user_id: 1,
+                        post_id: 1,
+                        content: 1,
+                        images: 1,
+                        createdAt: 1,
+                        updatedAt: 1,
+                        "users.name": 1,
+                        "users.username": 1,
+                        "users.avatar": 1
+                    }
+                },
+                { $sort: { createdAt: -1 } }
+
+            ]).exec((error, data) => {
+                if (error) {
+                    console.log(error)
+                    return res.send([])
+                } else {
+                    console.log(data)
+                    return res.send(data)
+                }
+            })
+            // .sort({ 'createdAt': 'desc' })
+        }
     }
 
 }

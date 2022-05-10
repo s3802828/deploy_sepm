@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { useForm } from 'react-hook-form';
 import { useDispatch, useSelector } from "react-redux";
 import { updateComment, deleteComment } from "../../redux_sepm/actions/post_details";
@@ -52,6 +52,12 @@ export default function Comment({ comment, post_id }) {
         _id: comment._id, content: comment.content, images: null
     })
 
+    useEffect(() => {
+        setCommentData(
+           { _id: comment._id, content: comment.content, images: null}
+        )
+    }, [comment])
+
     const dispatch = useDispatch();
 
     const submit = (form, e) => {
@@ -104,9 +110,9 @@ export default function Comment({ comment, post_id }) {
                                     </div>
 
                                     <div class="row justify-content-center my-1">
-                                        {authData && authData._id === comment?.user_id && (edit === true
+                                         {edit === true
                                             ? <form encType="multipart/form-data" onSubmit={handleSubmit(submit)}>
-                                                <textarea name="content" value={commentData?.content} className={`form-control ${errors.content
+                                                <textarea name="content" value={comment?.content} className={`form-control ${errors.content
                                                     ? 'is-invalid'
                                                     : ''}`} {...register('content')} onChange={(e) => setCommentData({ ...commentData, content: e.target.value })}>
                                                     {/* Comment */}
@@ -114,7 +120,7 @@ export default function Comment({ comment, post_id }) {
                                                 <div className='invalid-feedback'>
                                                     {errors.content?.message}
                                                 </div>
-                                                <input name="_id" type="hidden" value={commentData._id} />
+                                                <input name="_id" type="hidden" value={comment._id} />
                                                 <div class="custom-file my-2">
                                                     <input type="file" name="images" className={`custom-file-input ${errors.images
                                                         ? 'is-invalid'
@@ -124,15 +130,15 @@ export default function Comment({ comment, post_id }) {
                                                     </div>
                                                 </div>
                                                 <div class="d-flex my-3">
-                                                    <button type="button" class="btn btn-danger me-auto" onClick={() => { dispatch(deleteComment(commentData._id)); window.location.replace("/postdetail") }}>Delete</button>
+                                                    <button type="button" class="btn btn-danger me-auto" onClick={() => { dispatch(deleteComment(comment._id)); window.location.replace(`/client/postdetail/${post_id}`) }}>Delete</button>
 
                                                     <button type="button" class="btn btn-light me-2" onClick={() => setEdit(!edit)}>Cancel</button>
                                                     <button type="submit" class="btn btn-primary me-2" >Save</button>
 
                                                 </div>
-                                            </form> :
-                                            <p>{nl2br(comment?.content)}</p>
-                                        )}
+                                            </form>:
+                                            <p>{comment?.content && nl2br(comment?.content)}</p>
+                                        }
                                         {comment?.images && comment?.images != "" ? <img className="mb-2" src={`https://csfunctions-web-app.s3.amazonaws.com/${comment.images}`}></img>
                                             : <></>}
                                     </div>
