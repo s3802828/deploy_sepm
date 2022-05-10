@@ -15,7 +15,7 @@ export function EditProfile() {
             .required('Name is required')
             .max(50, 'Name must not exceed 50 characters')
             .matches(
-                /^(?![ ]+$)[a-zA-Z .]*$/,
+                /^(?!'-_[ ]+$)[a-zA-Z .]*$/,
                 'Name must only contain letters and space'
             ),
         username: Yup.string()
@@ -34,32 +34,32 @@ export function EditProfile() {
         bio: Yup.string().trim()
             .max(1000, "Bio cannot excess 1000 characters")
             .matches(
-                /^[a-zA-Z0-9 ?,.$'"-:+_();@!%*#?&\/\\(\r\n|\r|\n)]+$/,
+                /^[a-zA-Z0-9 ?,.$'"-:+_()=;@!%*#?&\/\\(\r\n|\r|\n)]+$/,
                 'Content cannot contain certain special characters. Be careful with apostrophe. The valid one is " \' "'
             ).nullable(true).transform(v => v === "" ? null : v),
         facebook: Yup.string().trim()
             .matches(
-                /^[a-zA-Z0-9 ?,.$'"-:+_();@!%*#?&\/\\(\r\n|\r|\n)]+$/,
+                /^[a-zA-Z0-9 ?,.$'"-:+_()=;@!%*#?&\/\\(\r\n|\r|\n)]+$/,
                 'Content cannot contain certain special characters. Be careful with apostrophe. The valid one is " \' "'
             ).nullable(true).transform(v => v === "" ? null : v),
         instagram: Yup.string().trim()
             .matches(
-                /^[a-zA-Z0-9 ?,.$'"-:+_();@!%*#?&\/\\(\r\n|\r|\n)]+$/,
+                /^[a-zA-Z0-9 ?,.$'"-:+_()=;@!%*#?&\/\\(\r\n|\r|\n)]+$/,
                 'Content cannot contain certain special characters. Be careful with apostrophe. The valid one is " \' "'
             ).nullable(true).transform(v => v === "" ? null : v),
         twitter: Yup.string().trim()
             .matches(
-                /^[a-zA-Z0-9 ?,.$'"-:+_();@!%*#?&\/\\(\r\n|\r|\n)]+$/,
+                /^[a-zA-Z0-9 ?,.$'"-:+_()=;@!%*#?&\/\\(\r\n|\r|\n)]+$/,
                 'Content cannot contain certain special characters. Be careful with apostrophe. The valid one is " \' "'
             ).nullable(true).transform(v => v === "" ? null : v),
         linkedin: Yup.string().trim()
             .matches(
-                /^[a-zA-Z0-9 ?,.$'"-:+_();@!%*#?&\/\\(\r\n|\r|\n)]+$/,
+                /^[a-zA-Z0-9 ?,.$'"-:+_()=;@!%*#?&\/\\(\r\n|\r|\n)]+$/,
                 'Content cannot contain certain special characters. Be careful with apostrophe. The valid one is " \' "'
             ).nullable(true).transform(v => v === "" ? null : v),
         github: Yup.string().trim()
             .matches(
-                /^[a-zA-Z0-9 ?,.$'"-:+_();@!%*#?&\/\\(\r\n|\r|\n)]+$/,
+                /^[a-zA-Z0-9 ?,.$'"-:+_()=;@!%*#?&\/\\(\r\n|\r|\n)]+$/,
                 'Content cannot contain certain special characters. Be careful with apostrophe. The valid one is " \' "'
             ).nullable(true).transform(v => v === "" ? null : v)
     })

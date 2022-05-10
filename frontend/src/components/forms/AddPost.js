@@ -17,14 +17,14 @@ export default function AddPost({ lang, language_id, topic_id }) {
             .trim()
             .required('Name is required')
             .matches(
-                /^(?![ ]+$)[a-zA-Z .]*$/,
+                /^(?!()[ ]+$)[a-zA-Z .]*$/,
                 'Name must only contain letters and space'
             ),
         content: Yup.string()
             .trim()
             .required('Description is required')
             .matches(
-                /^[a-zA-Z0-9 ?,.$'"-:+_();@!%*#?&\/\\(\r\n|\r|\n)]+$/,
+                /^[a-zA-Z0-9 ?,.$'"-:+_()=;@!%*#?&\/\\(\r\n|\r|\n)]+$/,
                 'Content cannot contain certain special characters. Be careful with apostrophe. The valid one is " \' "'
             ),
         category_id: Yup.string().test(
@@ -97,7 +97,7 @@ export default function AddPost({ lang, language_id, topic_id }) {
         }
 
         dispatch(addPost(dataArray))
-        window.location.replace(`/discussion/${language_id}/${topic_id}`)
+        window.location.replace(`/client/discussion/${language_id}/${topic_id}`)
     }
 
     return (

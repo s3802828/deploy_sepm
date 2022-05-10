@@ -19,14 +19,14 @@ export default function AddFunction() {
             .trim()
             .required('Name is required')
             .matches(
-                /^(?![ ]+$)[a-zA-Z .]*$/,
+                /^(?!(),[ ]+$)[a-zA-Z .]*$/,
                 'Name must only contain letters and space'
             ),
         params: Yup.string()
             .trim()
             .required('Params is required. If no param, please write None')
             .matches(
-                /^(?![ ]+$)[a-zA-Z .]*$/,
+                /^(?!(),[ ]+$)[a-zA-Z .]*$/,
                 'Params must only contain letters and space'
             ),
         description: Yup.string()
@@ -40,20 +40,20 @@ export default function AddFunction() {
             .trim()
             .required('Question is required')
             .matches(
-                /^[a-zA-Z0-9 ?,.$'"-:+_();@!%*#?&\/\\(\r\n|\r|\n)]+$/,
+                /^[a-zA-Z0-9 ?,.$'"-:+_()=;@!%*#?&\/\\(\r\n|\r|\n)]+$/,
                 'Content cannot contain certain special characters. Be careful with apostrophe. The valid one is " \' "'
             ),
         example_result: Yup.string()
             .trim()
             .required('Result is required')
             .matches(
-                /^[a-zA-Z0-9 ?,.$'"-:+_();@!%*#?&\/\\(\r\n|\r|\n)]+$/,
+                /^[a-zA-Z0-9 ?,.$'"-:+_()=;@!%*#?&\/\\(\r\n|\r|\n)]+$/,
                 'Content cannot contain certain special characters. Be careful with apostrophe. The valid one is " \' "'
             ),
         more_detail: Yup.string()
             .trim()
             .matches(
-                /^[a-zA-Z0-9 ?,.$'"-:+_();@!%*#?&\/\\(\r\n|\r|\n)]+$/,
+                /^[a-zA-Z0-9 ?,.$'"-:+_()=;@!%*#?&\/\\(\r\n|\r|\n)]+$/,
                 'Content cannot contain certain special characters. Be careful with apostrophe. The valid one is " \' "'
             ).nullable(true).transform(v => v === "" ? null : v),
         category_id: Yup.string().test(
@@ -103,7 +103,7 @@ export default function AddFunction() {
         // e.preventDefault();
         console.log(functionData)
         dispatch(addFunction(functionData))
-        window.location.replace(`/cheatsheet/${topic_id.language_id}`)
+        window.location.replace(`/client/cheatsheet/${topic_id.language_id}`)
     }
 
     return (
