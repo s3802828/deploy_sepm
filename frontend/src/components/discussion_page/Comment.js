@@ -146,7 +146,8 @@ export default function Comment({ comment, post_id }) {
                                             </form> :
                                             <p>{comment?.content && nl2br(comment?.content)}</p>
                                         }
-                                        {comment?.images && comment?.images != "" ? <img className="mb-2" src={`https://csfunctions-web-app.s3.amazonaws.com/${comment.images}`}></img>
+                                        {comment?.images && comment?.images != "" ? <img className="mb-2" style={{ maxWidth: '500px', maxHeight: '500px' }}
+                                        src={`https://csfunctions-web-app.s3.amazonaws.com/${comment.images}`}></img>
                                             : <></>}
                                     </div>
 

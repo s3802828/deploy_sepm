@@ -88,7 +88,7 @@ export default function PostDetailPage() {
     return (
         <div class="container-fluid" style={{ marginTop: 80, marginBottom: 80 }}>
             <div class="row justify-content-center">
-                <div class="col-11">
+                <div class="col-10">
                     <div class="row my-3">
                         <div className='d-flex'>
                             <p className='my-auto'>Post by: </p>
@@ -128,6 +128,7 @@ export default function PostDetailPage() {
                             <div class="col-10">
                                 {post_detail[0]?.images && post_detail[0]?.images != '' ? <img class="img-thumbnail mx-auto d-block"
                                     src={`https://csfunctions-web-app.s3.amazonaws.com/${post_detail[0]?.images}`}
+                                    style={{ maxWidth: '500px', maxHeight: '500px' }}
                                     alt=""></img> : <></>}
                             </div>
                         </div>
