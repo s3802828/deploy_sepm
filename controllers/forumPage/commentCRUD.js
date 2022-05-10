@@ -67,7 +67,7 @@ exports.addComment = async function (req, res) {
         const result = await commentModel.create({
             post_id: req.body.post_id,
             content: req.body.content,
-            user_id: req.body.user_id
+            user_id: req.body.user_id,
         })
 
         if (result) {
@@ -114,7 +114,7 @@ exports.addComment = async function (req, res) {
 exports.editComment = function (req, res) {
 
     // console.log("Edit comment")
-    // console.log(req.file)
+    console.log(req.file)
     if (req.file) {
         const file = req.file;
 
@@ -123,9 +123,10 @@ exports.editComment = function (req, res) {
 
             console.log("Found comment")
             if (result) {
-                //Remove current image from storage 
-                deleteFile(result.images, bucketName);
-
+                if (result.images) {
+                    //Remove current image from storage 
+                    deleteFile(result.images, bucketName);
+                }
                 //Replacing with new image
                 const updateResult = await commentModel.findByIdAndUpdate({ _id: mongoose.Types.ObjectId(req.body._id) }, {
                     images: 'commentUploads/' + req.file.filename + '.' + req.file.mimetype.split('/')[1],
@@ -177,9 +178,6 @@ exports.editComment = function (req, res) {
                 console.log(error)
             }
         })
-
-
-
     } else {
 
         commentModel.findByIdAndUpdate({ _id: mongoose.Types.ObjectId(req.body._id) }, {

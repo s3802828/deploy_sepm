@@ -45,7 +45,7 @@ export default function Comment({ comment, post_id }) {
         resolver: yupResolver(validationSchema),
     });
 
-    const { authData } = useSelector((state) => state?.authReducer);
+    const { authData, role } = useSelector((state) => state?.authReducer);
 
     const [edit, setEdit] = useState(false);
     const [commentData, setCommentData] = useState({
@@ -54,7 +54,7 @@ export default function Comment({ comment, post_id }) {
 
     useEffect(() => {
         setCommentData(
-           { _id: comment._id, content: comment.content, images: null}
+            { _id: comment._id, content: comment.content, images: null }
         )
     }, [comment])
 
@@ -69,10 +69,11 @@ export default function Comment({ comment, post_id }) {
         if (commentData.images != null) {
             dataArray.append("images", commentData.images, { type: 'image/jpeg' });
         }
-
+        console.log(commentData.images)
         dispatch(updateComment(dataArray));
+        //window.location.replace(`/client/postdetail/${post_id}`)
     }
-
+    // const {post_id} = useParams()
     console.log(comment?.images)
 
     console.log(authData?.avatar)
@@ -86,7 +87,7 @@ export default function Comment({ comment, post_id }) {
                             <div class="col-6 d-flex align-items-center justify-content-start">
                                 <a href={`/client/profile/${comment?.user_id}`} style={{ "text-decoration": "none", color: "black" }}><img src={`${comment?.users[0]?.avatar ? `https://csfunctions-web-app.s3.amazonaws.com/${comment?.users[0]?.avatar}` : 'http://cdn.onlinewebfonts.com/svg/img_24787.png'} `}
                                     class="img rounded-circle m-2" width="40" height="40" alt=""></img>
-                                <label id="commentOwner">{comment?.users[0]?.name}&nbsp;({comment?.users[0]?.username})</label></a>
+                                    <label id="commentOwner">{comment?.users[0]?.name}&nbsp;({comment?.users[0]?.username})</label></a>
                             </div>
                             <div class="col-6 d-flex align-items-center justify-content-end">
                                 {authData && authData._id === comment?.user_id && (edit === true
@@ -100,6 +101,12 @@ export default function Comment({ comment, post_id }) {
                                         </ul>
                                     </div>
                                 )}
+                                {
+                                    authData && authData._id !== comment?.user_id && role.includes('admin') &&
+                                    <div className="d-flex">
+                                        <button type="button" class="btn btn-danger ms-auto" onClick={() => { dispatch(deleteComment(comment._id)); window.location.replace(`/client/postdetail/${post_id}`) }}>Delete</button>
+                                    </div>
+                                }
                             </div>
                             <div class="row justify-content-center">
                                 <div class="col-12">
@@ -110,9 +117,9 @@ export default function Comment({ comment, post_id }) {
                                     </div>
 
                                     <div class="row justify-content-center my-1">
-                                         {edit === true
+                                        {edit === true
                                             ? <form encType="multipart/form-data" onSubmit={handleSubmit(submit)}>
-                                                <textarea name="content" value={comment?.content} className={`form-control ${errors.content
+                                                <textarea name="content" defaultValue={comment?.content} className={`form-control ${errors.content
                                                     ? 'is-invalid'
                                                     : ''}`} {...register('content')} onChange={(e) => setCommentData({ ...commentData, content: e.target.value })}>
                                                     {/* Comment */}
@@ -136,7 +143,7 @@ export default function Comment({ comment, post_id }) {
                                                     <button type="submit" class="btn btn-primary me-2" >Save</button>
 
                                                 </div>
-                                            </form>:
+                                            </form> :
                                             <p>{comment?.content && nl2br(comment?.content)}</p>
                                         }
                                         {comment?.images && comment?.images != "" ? <img className="mb-2" src={`https://csfunctions-web-app.s3.amazonaws.com/${comment.images}`}></img>
