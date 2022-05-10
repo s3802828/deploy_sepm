@@ -104,7 +104,7 @@ export default function Comment({ comment, post_id }) {
                                     </div>
 
                                     <div class="row justify-content-center my-1">
-                                        {authData && authData._id === comment?.user_id && (edit === true
+                                         {edit === true
                                             ? <form encType="multipart/form-data" onSubmit={handleSubmit(submit)}>
                                                 <textarea name="content" value={commentData?.content} className={`form-control ${errors.content
                                                     ? 'is-invalid'
@@ -130,9 +130,9 @@ export default function Comment({ comment, post_id }) {
                                                     <button type="submit" class="btn btn-primary me-2" >Save</button>
 
                                                 </div>
-                                            </form> :
-                                            <p>{nl2br(comment?.content)}</p>
-                                        )}
+                                            </form>:
+                                            <p>{comment?.comment && nl2br(comment?.content)}</p>
+                                            }
                                         {comment?.images && comment?.images != "" ? <img className="mb-2" src={`https://csfunctions-web-app.s3.amazonaws.com/${comment.images}`}></img>
                                             : <></>}
                                     </div>

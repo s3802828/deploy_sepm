@@ -103,7 +103,7 @@ export default function AddFunction() {
         // e.preventDefault();
         console.log(functionData)
         dispatch(addFunction(functionData))
-        window.location.replace(`/cheatsheet/${topic_id.language_id}`)
+        window.location.replace(`/client/cheatsheet/${topic_id.language_id}`)
     }
 
     return (

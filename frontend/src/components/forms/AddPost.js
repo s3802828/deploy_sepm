@@ -97,7 +97,7 @@ export default function AddPost({ lang, language_id, topic_id }) {
         }
 
         dispatch(addPost(dataArray))
-        window.location.replace(`/discussion/${language_id}/${topic_id}`)
+        window.location.replace(`/client/discussion/${language_id}/${topic_id}`)
     }
 
     return (

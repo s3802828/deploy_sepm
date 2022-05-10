@@ -106,7 +106,7 @@ export function EditProfile() {
         // e.preventDefault();
         console.log(profileData)
         dispatch(updateProfile(profileData))
-        window.location.replace(`/profile/${authData?._id}`)
+        window.location.replace(`/client/profile/${authData?._id}`)
     }
 
     return (
@@ -316,7 +316,7 @@ export function EditAvatar() {
         dispatch(updateAva(authData._id, dataArray));
 
         console.log(ava, authData._id);
-        window.location.replace(`/profile/${authData._id}`)
+        window.location.replace(`/client/profile/${authData._id}`)
     }
 
     function showPreview(event) {

@@ -143,7 +143,7 @@ export default function Homepage() {
                                 <img src={document} class="img-fluid w-25 h-25" alt="document" /><br /><br />
                                 <h5 class="card-title">Cheat Sheet Documentation</h5>
                                 <p class="card-text">Offer organized lists of built-in functions</p>
-                                <a href="/cheatsheet" class="btn btn-outline-secondary" style={{ backgroundColor: "#8c8a8b", outlineColor: "#8c8a8b", color: "#f2efdb" }}>Go Explore</a>
+                                <a href="/client/cheatsheet/624bfee26f2c17b5768ef2a6" class="btn btn-outline-secondary" style={{ backgroundColor: "#8c8a8b", outlineColor: "#8c8a8b", color: "#f2efdb" }}>Go Explore</a>
                             </div>
                         </div>
                     </div>
@@ -153,7 +153,7 @@ export default function Homepage() {
                                 <img src={forum} class="img-fluid w-25 h-25" alt="forum" /><br /><br />
                                 <h5 class="card-title">Discussion Forum</h5>
                                 <p class="card-text">Feel free to post questions here</p>
-                                <a href="/discussion" class="btn btn-outline-secondary" style={{ backgroundColor: "#8c8a8b", outlineColor: "#8c8a8b", color: "#f2efdb" }}>Go Explore</a>
+                                <a href="/client/discussion/624bfee26f2c17b5768ef2a6/general" class="btn btn-outline-secondary" style={{ backgroundColor: "#8c8a8b", outlineColor: "#8c8a8b", color: "#f2efdb" }}>Go Explore</a>
                             </div>
                         </div>
                     </div>
