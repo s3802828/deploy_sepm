@@ -32,7 +32,7 @@ export default function PersonalInfo({ userInfo }) {
                         <ul class="dropdown-menu">
                             <li>
                                 <a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                    Edit Personal Info
+                                    Edit Personal Information
                                 </a>
                             </li>
                             <li>

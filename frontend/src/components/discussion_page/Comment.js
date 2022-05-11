@@ -95,7 +95,7 @@ export default function Comment({ comment, post_id }) {
                                         ? <div></div>
                                         :
                                         <div class="dropend d-flex">
-                                            <button type="button" class="btn btn-primary ms-auto dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"></button>
+                                            <button type="button" class="btn btn-secondary ms-auto dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"> <i class="bi bi-gear"></i></button>
                                             <ul class="dropdown-menu">
                                                 <li><button class="dropdown-item" onClick={() => setEdit(true)}>Edit</button></li>
                                                 <li><button class="dropdown-item" onClick={() => { dispatch(deleteComment(commentData._id)); window.location.replace(`/client/postdetail/${post_id}`) }}>Delete</button></li>
@@ -133,7 +133,7 @@ export default function Comment({ comment, post_id }) {
                                             <button type="button" class="btn btn-danger me-auto" onClick={() => { dispatch(deleteComment(comment._id)); window.location.replace(`/client/postdetail/${post_id}`) }}>Delete</button>
 
                                             <button type="button" class="btn btn-light me-2" onClick={() => setEdit(!edit)}>Cancel</button>
-                                            <button type="submit" class="btn btn-primary me-2" >Save</button>
+                                            <button type="submit" class="btn btn-success me-2" >Save</button>
 
                                         </div>
                                     </form> :
