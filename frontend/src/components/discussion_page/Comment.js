@@ -94,18 +94,21 @@ export default function Comment({ comment, post_id }) {
                                     {authData && authData._id === comment?.user_id && (edit == true
                                         ? <div></div>
                                         :
-                                        <div class="dropend d-flex">
-                                            <button type="button" class="btn btn-secondary ms-auto dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"> <i class="bi bi-gear"></i></button>
-                                            <ul class="dropdown-menu">
-                                                <li><button class="dropdown-item" onClick={() => setEdit(true)}>Edit</button></li>
-                                                <li><button class="dropdown-item" onClick={() => { dispatch(deleteComment(commentData._id)); window.location.replace(`/client/postdetail/${post_id}`) }}>Delete</button></li>
-                                            </ul>
+                                        // <div class="dropend d-flex">
+                                        //     <button type="button" class="btn btn-secondary ms-auto dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"> <i class="bi bi-gear"></i></button>
+                                        //     <ul class="dropdown-menu">
+                                        //         <li><button class="dropdown-item" onClick={() => setEdit(true)}>Edit</button></li>
+                                        //         <li><button class="dropdown-item" onClick={() => { dispatch(deleteComment(commentData._id)); window.location.replace(`/client/postdetail/${post_id}`) }}>Delete</button></li>
+                                        //     </ul>
+                                        // </div>
+                                        <div className="d-flex">
+                                            <button class="btn btn-warning ms-auto" onClick={() => setEdit(true)}><i class="bi bi-pencil-square"> Edit</i></button>
                                         </div>
                                     )}
                                     {authData && role.includes('admin') && authData._id !== comment?.user_id &&
                                         <div className="d-flex">
-                                                <button type="button" class="btn btn-danger ms-auto" onClick={() => { dispatch(deleteComment(comment._id)); window.location.replace(`/client/postdetail/${post_id}`) }}>Delete</button>
-                                        </div>                                    
+                                            <button type="button" class="btn btn-danger ms-auto" onClick={() => { dispatch(deleteComment(comment._id)); window.location.replace(`/client/postdetail/${post_id}`) }}><i class="bi bi-trash"> Delete</i></button>
+                                        </div>
                                     }
                                 </div>
                             </div>
