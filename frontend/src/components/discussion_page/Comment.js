@@ -102,6 +102,11 @@ export default function Comment({ comment, post_id }) {
                                             </ul>
                                         </div>
                                     )}
+                                    {authData && role.includes('admin') && authData._id !== comment?.user_id &&
+                                        <div className="d-flex">
+                                                <button type="button" class="btn btn-danger ms-auto" onClick={() => { dispatch(deleteComment(comment._id)); window.location.replace(`/client/postdetail/${post_id}`) }}>Delete</button>
+                                        </div>                                    
+                                    }
                                 </div>
                             </div>
                             <div class="row justify-content-center my-1">
