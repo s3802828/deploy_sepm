@@ -24,11 +24,11 @@ export default function Login() {
         dispatch(login(data))
     };
     return (
-        <div style={{ marginTop: "150px", marginBottom: 80 }}>
+        <div style={{marginTop: "150px", marginBottom: 80}}>
             <div class="d-flex align-items-center h-100">
                 <div class="container-fluid">
                     <div class="row justify-content-center">
-                        <div class="col-xl-4 col-lg-6 col-sm-8 col-10">
+                        <div class="col-xl-4 col-lg-6 col-sm-8 col-10" style={{ padding: "30px"}}>
                             <div style={{ marginLeft: '35%' }}>
                                 <img
                                     className='mb-4 mx-auto'
@@ -38,7 +38,7 @@ export default function Login() {
                                     height='45%'
                                 />
                             </div>
-                            <h2 class="mb-3 mt-10 text-center">LOG IN</h2>
+                            <h2 class="mb-3 mt-10 text-center" style={{color: "#ffc13b"}}>LOG IN</h2>
 
                             <form onSubmit={handleSubmit(logIn)}>
 
@@ -73,11 +73,11 @@ export default function Login() {
                                     </div>
                                 </div>
                                 <div class="d-grid gap-2 d-flex justify-content-center">
-                                    <button type="submit" class="btn btn-primary btn-lg w-100">Log in</button>
+                                    <button type="submit" class="btn btn-warning btn-lg w-100">Log in</button>
                                 </div>
                                 <div class="row d-flex justify-content-between">
                                     <div class="col-lg-8 col-md-7 col-12 text-center text-md-start my-1">
-                                        <a href="/client/signup">Don't have an account? Sign up</a>
+                                        <a href="/client/signup" style={{color: "#ffc13b"}}>Don't have an account? Sign up</a>
                                     </div>
                                 </div>
                             </form>
@@ -86,6 +86,7 @@ export default function Login() {
                     </div>
                 </div>
             </div>
+            <div style={{height: "100px"}}></div>
         </div>
     )
 }

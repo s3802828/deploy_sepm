@@ -16,9 +16,9 @@ export default function PageNotFound() {
                                     height='45%'
                                 />
                             </div>
-                            <h2 class="mb-3 mt-10 text-center">404</h2>
-                            <h2 class="mb-3 mt-10 text-center">PAGE NOT FOUND</h2>
-                            <button type="button" class="btn btn-primary w-100"><a href="/" class="link-light" style={{textDecoration: "none" }}>Back to Home Page</a></button>
+                            <h2 class="mb-3 mt-10 text-center text-white">404</h2>
+                            <h2 class="mb-3 mt-10 text-center text-white">PAGE NOT FOUND</h2>
+                            <button type="button" class="btn btn-warning w-100"><a href="/" class="link-light" style={{textDecoration: "none" }}>Back to Home Page</a></button>
                             
                         </div>
 

@@ -38,9 +38,8 @@ export default function FunctionDropdown({ func, category_id }) {
                 <div class="fluid-container" >
                     <div class="row">
                         <div class="col-1">
-                            <span>
-                                <img src={clicked == false ? "https://cdn-icons-png.flaticon.com/512/1077/1077035.png" : "https://cdn-icons-png.flaticon.com/512/1076/1076984.png"}
-                                    style={{ width: 30, height: 30 }}
+                        <h3>
+                                <i style={{color:"white"}} className={clicked == false ? "bi bi-heart" : "bi bi-heart-fill"}
                                     onClick={() => {
                                         if (role) {
                                             if (!clicked) {
@@ -52,14 +51,13 @@ export default function FunctionDropdown({ func, category_id }) {
                                         }
 
                                     }} />
-                            </span>
-
+                            </h3>
                         </div>
-                        <div class="col-10" >
+                        <div class="col-10" style={{color: "white"}}>
                             <h5>{func.name}</h5>
                         </div>
                         <div class="col-1" >
-                            <img src={open == false ? "https://cdn-icons-png.flaticon.com/512/271/271210.png" : "https://cdn-icons-png.flaticon.com/512/271/271239.png"} style={{ width: 20, height: 20 }} onClick={() => setOpen(!open)} />
+                            <h3>{open == false ? <i class="bi bi-caret-down-fill" style={{color: "white"}} onClick={() => setOpen(!open)} ></i> : <i class="bi bi-caret-up-fill" style={{color: "white"}} onClick={() => setOpen(!open)}></i>}</h3>
 
                         </div>
                     </div>

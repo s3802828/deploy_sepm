@@ -162,32 +162,33 @@ export default function Homepage() {
             </section>
 
             <section id="contact" style={{ paddingBottom: "5%", paddingTop: "3%" }}>
-                <h1 className="text-center">CONTACT US</h1>
-                <div class="section-header-break text-center">--------<img src={startgif} alt= "stargif" class="img-fluid" style={{ maxWidth: "1.2%", maxHeight: "1.2%" }} />--------</div>
+                <h1 className="text-center" style={{color: "#ffc13b"}}>CONTACT US</h1>
+                <div class="section-header-break text-center" style={{color: "#ffc13b"}}>--------<img src="https://upload.wikimedia.org/wikipedia/commons/7/7c/Light_Yellow_Star_pulsating.gif?20130713190110" alt= "stargif" class="img-fluid" style={{ maxWidth: "1.2%", maxHeight: "1.2%" }} />--------</div>
                 <br />
                 <div class="container-fluid">
                     <div class="row d-flex justify-content-evenly">
 
                         <div class="col-md-4 text-center">
                             <div class="contact-address">
-                                <img src="https://img.icons8.com/ios/50/000000/address--v1.png" alt="addressIcon"/>                                <h3>Address</h3>
-                                <address>82 Hai Ba Trung Street, District 1, Ho Chi Minh City, Vietnam</address>
+                            <img src="https://img.icons8.com/ios/50/ffc13b/address--v1.png"/>                               
+                                <h3 style={{color: "#ffc13b"}}>Address</h3>
+                                <address style={{color: "#ffc13b"}}>82 Hai Ba Trung Street, District 1, Ho Chi Minh City, Vietnam</address>
                             </div>
                         </div>
 
                         <div class="col-md-4 text-center border-start border-dark">
                             <div class="contact-phone">
-                                <img src="https://img.icons8.com/ios/50/000000/phone.png"  alt="phoneIcon"/>
-                                <h3>Phone Number</h3>
-                                <p>(+84) 028 456 190</p>
+                                <img src="https://img.icons8.com/ios/50/ffc13b/phone.png"  alt="phoneIcon"/>
+                                <h3 style={{color: "#ffc13b"}}>Phone Number</h3>
+                                <p style={{color: "#ffc13b"}}>(+84) 028 456 190</p>
                             </div>
                         </div>
 
                         <div class="col-md-4 text-center border-start border-dark">
                             <div class="contact-email">
-                                <img src="https://img.icons8.com/ios/50/000000/envelope-dots.png" alt="emailIcon"/>
-                                <h3>Email</h3>
-                                <p>csfunctionservices@gmail.com</p>
+                                <img src="https://img.icons8.com/ios/50/ffc13b/envelope-dots.png" alt="emailIcon"/>
+                                <h3 style={{color: "#ffc13b"}}>Email</h3>
+                                <p style={{color: "#ffc13b"}}>csfunctionservices@gmail.com</p>
                             </div>
                         </div>
 

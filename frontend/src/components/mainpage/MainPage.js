@@ -2,7 +2,7 @@ import LanguageTable from "./LanguageTable"
 import { useParams } from 'react-router';
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';
-import { getLanguage} from "../../redux_sepm/actions/language"
+import { getLanguage } from "../../redux_sepm/actions/language"
 import Search from "./Search";
 
 export default function MainPage() {
@@ -33,7 +33,7 @@ export default function MainPage() {
                                 <div class="dropdown col-1">
                                     <div class="btn-group">
 
-                                        <button type="button" class="btn btn-outline-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <button type="button" class="btn btn-outline-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" style={{ color: "#ffc13b" }}>
                                             <i class="bi bi-filter" />Language
                                         </button>
 
@@ -50,7 +50,11 @@ export default function MainPage() {
                             </div>
                         </div>
                     </div>
-                    <LanguageTable languages={languages} />
+                    <div class="row">
+                        <div className="col-lg-2"></div>
+                        <div class="col-lg-8 col-12"><LanguageTable languages={languages} /></div>
+                        <div className="col-lg-2"></div>
+                    </div>
                 </div>
             </div>
         </>

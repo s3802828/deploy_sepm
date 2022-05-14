@@ -35,7 +35,7 @@ export default function DiscussionPage() {
     return (
         <div style={{ marginTop: 60, marginBottom: 80 }}>
             <div className="container" >
-                <div class="row my-3 border p-1 border-1 border-dark rounded" style={{ backgroundColor: '#fda47e' }}>
+                <div class="row my-3 border p-1 border-1 border-dark rounded" style={{ backgroundColor: '#ffc13b' }}>
                     <div className="col-2" style={{ width: "10%", height: "10%" }}><img className="img-fluid" src={weblogo} /></div>
                     <div className="col-10 d-flex justify-content-center align-items-center">
                         <h2 style={{ textTransform: "uppercase" }}>{languageList.map((element) => element._id === language_id && element.name)}</h2>
@@ -44,7 +44,7 @@ export default function DiscussionPage() {
                 </div>
                 <div className="row my-3 d-flex justify-content-between">
                     <div class="col-2">
-                        <button type="button" class="btn" data-bs-toggle="dropdown" aria-expanded="false">
+                        <button type="button" class="btn" data-bs-toggle="dropdown" aria-expanded="false" style={{color: "white"}}>
                             <i class="bi bi-filter" />Language
                         </button>
                         <ul class="dropdown-menu">
@@ -54,9 +54,9 @@ export default function DiscussionPage() {
 
                     <div className="col-8"><SearchBar category_id={topic_id} language_id={language_id} /></div>
                     <div className="col-2 d-flex justify-content-end">
-                        {authData && (showCreatePostForm ? <button class="btn" type="button"
+                        {authData && (showCreatePostForm ? <button class="btn" type="button" style={{color: "white"}}
                             onClick={() => setShowCreatePostForm(false)}><i class="bi bi-dash-circle ms-auto"></i>CLOSE FORM</button> :
-                            <button class="btn" type="button"
+                            <button class="btn" type="button" style={{color: "white"}}
                                 onClick={() => setShowCreatePostForm(true)}><i class="bi bi-plus-circle ms-auto"></i>NEW QUESTION</button>)}
                     </div>
                 </div>

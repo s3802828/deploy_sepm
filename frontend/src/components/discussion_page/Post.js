@@ -22,15 +22,15 @@ export default function Post({ post }) {
     return (
         <div class="container-fluid">
             <div class="card mb-4 row">
-                <div class="card-header text-muted">
+                <div class="card-header text-muted" style={{backgroundColor: "#1e3d59", color: "white"}}>
                     <div>
                         <a
                             href={`/client/profile/${post.user_id}`}
-                            style={{ "text-decoration": "none", color: "black" }}
+                            style={{ "text-decoration": "none", color: "white" }}
                         >
                             Posted by: {post.users[0]?.name}@{post.users[0]?.username}
                         </a>
-                        <span class="float-end">
+                        <span class="float-end" style={{color: "white"}}>
                             {moment(post.createdAt).fromNow()}
                         </span>
                     </div>

@@ -1,17 +1,17 @@
 export default function Sidebar({ topicList, language_id, topic_id }) {
     return (
         <div
-            className='d-flex flex-column flex-shrink-0 p-3 bg-light' style={{ width: '100%' }}>
-            <a href='#' className='text-center nav-link link-dark'>
-                <span>CATEGORIES</span>
+            className='d-flex flex-column flex-shrink-0 p-3' style={{ width: '100%' , backgroundColor: "#152039"}}>
+            <a href='#' className='text-center nav-link'>
+                <span style={{color: "#ffc13b"}}>CATEGORIES</span>
             </a>
-            <hr />
+            <hr style={{color: "white"}}/>
             <ul className='nav nav-pills nav-fill flex-column mb-auto'>
                 <li className='nav-item text-center'>
                     <a
                         href={`/client/discussion/${language_id}/general`}
-                        className={`nav-link link-dark ${'general'== topic_id && 'active'}`}
-                        style={{ backgroundColor: `${'general' == topic_id && 'black'}` }}
+                        className={`nav-link ${'general'== topic_id && 'active'}`}
+                        style={{ color: `${'general' == topic_id ? 'white' : "#ffc13b"}`, backgroundColor: `${'general' == topic_id && 'black'}` }}
                         aria-current='page'
                     >
                         General
@@ -20,8 +20,8 @@ export default function Sidebar({ topicList, language_id, topic_id }) {
                 <li className='nav-item text-center'>
                     <a
                         href={`/client/discussion/${language_id}/popular`}
-                        className={`nav-link link-dark ${'popular' == topic_id && 'active'}`}
-                        style={{ backgroundColor: `${'popular' == topic_id && 'black'}` }}
+                        className={`nav-link ${'popular' == topic_id && 'active'}`}
+                        style={{ color: `${'popular' == topic_id ? 'white' : "#ffc13b"}`, backgroundColor: `${'popular' == topic_id && 'black'}` }}
                         aria-current='page'
                     >
                         Popular
@@ -32,7 +32,7 @@ export default function Sidebar({ topicList, language_id, topic_id }) {
                         <a
                             href={`/client/discussion/${language_id}/${element._id}`}
                             className={`nav-link link-dark ${element._id == topic_id && 'active'}`}
-                            style={{ backgroundColor: `${element._id == topic_id && 'black'}` }}
+                            style={{ color: `${element._id == topic_id ? 'white' : "#ffc13b"}`, backgroundColor: `${element._id == topic_id && 'black'}` }}
                             aria-current='page'
                         >
                             {element.name}

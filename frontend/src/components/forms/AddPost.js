@@ -104,7 +104,7 @@ export default function AddPost({ lang, language_id, topic_id }) {
         <div>
             <div className='pt-3'>
                 <div className='card mb-4'>
-                    <div className='card-header text-center'>
+                    <div className='card-header text-center' style={{backgroundColor: "#1e3d59", color: "white"}}>
                         CREATE NEW POST
                     </div>
 
@@ -183,7 +183,7 @@ export default function AddPost({ lang, language_id, topic_id }) {
 
                                 <div className="d-grid gap-2 d-flex justify-content-end">
                                     &nbsp;&nbsp;
-                                    <button type='submit' className='btn btn-primary'
+                                    <button type='submit' className='btn btn-warning'
                                     // onClick={() => {
                                     //     unregister('title', { keepDefaultValue: true, });
                                     //     unregister('content', { keepDefaultValue: true, });

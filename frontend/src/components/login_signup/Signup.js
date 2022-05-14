@@ -74,7 +74,7 @@ export default function Signup() {
                             <div style={{ marginLeft: '35%' }}>
                                 <img className='mb-4 mx-auto' src={weblogo} alt='Web Logo' width='45%' height='45%' />
                             </div>
-                            <h2 class="mb-3 mt-10 text-center">SIGN UP</h2>
+                            <h2 class="mb-3 mt-10 text-center" style={{color: "#ffc13b"}}>SIGN UP</h2>
                             <form onSubmit={handleSubmit(signup)}>
                                 <div class="mb-3">
                                     <input type="name" name="Name" className={`form-control ${errors.name ? 'is-invalid' : ''}`} id="Name" placeholder="Name" {...register('name')}></input>
@@ -128,10 +128,10 @@ export default function Signup() {
                                     </div>
                                 </div>
                                 <div class="d-grid gap-2 d-flex justify-content-center">
-                                    <button type="submit" class="btn btn-primary btn-lg w-100">Sign up</button>
+                                    <button type="submit" class="btn btn-warning btn-lg w-100">Sign up</button>
                                 </div>
                                 <div class="row d-flex justify-content-center">
-                                    <a href="/client/login" class="text-center">Already have an account? Log in</a>
+                                    <a href="/client/login" class="text-center" style={{color: "#ffc13b"}}>Already have an account? Log in</a>
                                 </div>
                             </form>
                         </div>
