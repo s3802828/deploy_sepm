@@ -91,18 +91,22 @@ export default function PostDetailPage() {
                 <div class="col-10">
                     <div class="row my-3">
                         <div className='d-flex'>
-                            <p className='my-auto'>Post by: </p>
+                            {/* <p className='my-auto'>Post by: </p> */}
                             <img src={`${post_detail[0]?.users[0]?.avatar ? `https://csfunctions-web-app.s3.amazonaws.com/${post_detail[0]?.users[0]?.avatar}` : 'http://cdn.onlinewebfonts.com/svg/img_24787.png'} `}
                                 class="img rounded-circle m-2" width="30" height="30" alt=""></img>
-                            <a href={`/client/profile/${post_detail[0]?.user_id}`} className='my-auto' style={{ "text-decoration": "none", color: "black" }}>
-                                {post_detail[0]?.users[0]?.name}&nbsp;({post_detail[0]?.users[0]?.username})
+                            <a href={`/client/profile/${post_detail[0]?.user_id}`} className='my-auto' style={{ "text-decoration": "none", color: "white" }}>
+                                <h1>{post_detail[0]?.users[0]?.name}&nbsp;({post_detail[0]?.users[0]?.username})</h1>
                             </a>
                             &nbsp;&nbsp;&nbsp;
-                            <p className='my-auto'>Last Updated: {moment(post_detail[0]?.updatedAt).fromNow()}</p>
+                            <div>
+                                <p className='my-auto' style={{color: "#ffc13b"}}>{moment(post_detail[0]?.updatedAt).fromNow()}</p>
+                            </div>
+                            
                         </div>
+                        <hr style={{color: "#1e3d59"}}></hr>
                         <div className="row d-flex">
                             <div className='col-md-7 col'>
-                                <h2>{post_detail[0]?.title}</h2>
+                                <h2 style={{color: "#ffc13b"}}>{post_detail[0]?.title}</h2>
                             </div>
                             <div className='col-md-5 col d-flex justify-content-end align-items-center'>
                                 <div className='ms-auto'>
@@ -117,15 +121,16 @@ export default function PostDetailPage() {
                         </div>
                         <div class="row mb-3">
                             <div class="col-lg-5 col-12">
-                                <label for="Langauge">Language:&nbsp;</label>
-                                <span>{post_detail[0]?.languages[0]?.name}</span>
+                                <label for="Langauge" style={{color: "#ffc13b"}}>Language:&nbsp;</label>
+                                <span style={{color: "#d64612"}}>{post_detail[0]?.languages[0]?.name}</span>
                                 &nbsp;&nbsp;&nbsp;&nbsp;
-                                <label for="Topic" class="ms-1">Topic:&nbsp;</label>
-                                <span>{post_detail[0]?.categories[0]?.name}</span>
+                                <label for="Topic" class="ms-1" style={{color: "#ffc13b"}}>Topic:&nbsp;</label>
+                                <span style={{color: "#d64612"}}>{post_detail[0]?.categories[0]?.name}</span>
                             </div>
                         </div>
+                        <hr style={{color: "#1e3d59"}}></hr>
                         <div class="row justify-content-center mb-3">
-                            <p class="text-break">{post_detail[0]?.content && nl2br(post_detail[0]?.content)}
+                            <p class="text-break" style={{color: "white"}}>{post_detail[0]?.content && nl2br(post_detail[0]?.content)}
                             </p>
                             <div class="col-10">
                                 {post_detail[0]?.images && post_detail[0]?.images != '' ? <img class="img-thumbnail mx-auto d-block"
@@ -135,12 +140,12 @@ export default function PostDetailPage() {
                             </div>
                         </div>
                         <div class="row justify-content-center mb-3" >
-                            {authData && <div class="col-10 mt-3 py-2" style={{ backgroundColor: "#adab9a" }}>
+                            {authData && <div class="col-9 mt-3 py-2" style={{ backgroundColor: "#152039" }}>
                                 <form encType="multipart/form-data" onSubmit={handleSubmit(submit)}>
                                     <div class="input-group my-2">
                                         <textarea name="content" className={`form-control ${errors.content
                                             ? 'is-invalid'
-                                            : ''}`} placeholder="Enter Comment Here..."
+                                            : ''}`} placeholder="Write a public comment..."
                                             id="FunctionResult" {...register('content')} value={commentData.content} onChange={(e) => setCommentData({ ...commentData, content: e.target.value })} rows="2" ></textarea>
                                         <div className='invalid-feedback'>
                                             {errors.content?.message}

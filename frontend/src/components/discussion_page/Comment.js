@@ -81,15 +81,19 @@ export default function Comment({ comment, post_id }) {
         <div>
             <div class="container-fluid my-3">
                 <div class="row justify-content-center my-1">
-                    <div class="col-10" style={{ backgroundColor: "#adab9a" }}>
-                        <div class="row justify-content-between ms-3">
-                            <div className="d-flex">
-                                <img src={`${comment?.users[0]?.avatar ? `https://csfunctions-web-app.s3.amazonaws.com/${comment?.users[0]?.avatar}` : 'http://cdn.onlinewebfonts.com/svg/img_24787.png'} `}
+                    <div class="col-1">
+                    <img src={`${comment?.users[0]?.avatar ? `https://csfunctions-web-app.s3.amazonaws.com/${comment?.users[0]?.avatar}` : 'http://cdn.onlinewebfonts.com/svg/img_24787.png'} `}
                                     class="img rounded-circle m-2" width="40" height="40" alt=""></img>
+                    </div>
+                    <div class="col-10 rounded" >
+                        <div class="row justify-content-between ms-1 rounded" style={{ backgroundColor: "#ffc13b" }}>
+                            <div className="d-flex">
+                                {/* <img src={`${comment?.users[0]?.avatar ? `https://csfunctions-web-app.s3.amazonaws.com/${comment?.users[0]?.avatar}` : 'http://cdn.onlinewebfonts.com/svg/img_24787.png'} `}
+                                    class="img rounded-circle m-2" width="40" height="40" alt=""></img> */}
                                 <a href={`/client/profile/${comment?.user_id}`} className='my-auto' style={{ "text-decoration": "none", color: "black" }}>
-                                    {comment?.users[0]?.name}&nbsp;({comment?.users[0]?.username})</a>
+                                    <h6>{comment?.users[0]?.name}&nbsp;({comment?.users[0]?.username})</h6></a>
                                 &nbsp;&nbsp;&nbsp;&nbsp;
-                                <p className='my-auto'>Last update: {moment(comment?.updatedAt).fromNow()}</p>
+                                <p className='my-auto'>{moment(comment?.updatedAt).fromNow()}</p>
                                 <div className="ms-auto my-auto">
                                     {authData && authData._id === comment?.user_id && (edit == true
                                         ? <div></div>
@@ -142,11 +146,14 @@ export default function Comment({ comment, post_id }) {
                                     </form> :
                                     <p>{comment?.content && nl2br(comment?.content)}</p>
                                 }
-                                {comment?.images && comment?.images != "" ? <img className="mb-2" style={{ maxWidth: '400px', maxHeight: '400px' }}
+                                {/* {comment?.images && comment?.images != "" ? <img className="mb-2" style={{ maxWidth: '400px', maxHeight: '400px' }}
                                     src={`https://csfunctions-web-app.s3.amazonaws.com/${comment.images}`}></img>
-                                    : <></>}
+                                    : <></>} */}
                             </div>
                         </div >
+                        {comment?.images && comment?.images != "" ? <img className="my-2 ms-1 rounded" style={{ maxWidth: '400px', maxHeight: '400px' }}
+                                    src={`https://csfunctions-web-app.s3.amazonaws.com/${comment.images}`}></img>
+                                    : <></>}
                     </div >
                 </div >
             </div >
