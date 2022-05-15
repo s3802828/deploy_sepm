@@ -34,9 +34,20 @@ export default function UserSavedFunctions({ func_detail, user_id }) {
 
     return (
         <div>
-            <div class="alert alert-success text-center" id="savedcopy-alert" style={{ position: 'fixed', bottom: 10, width: '85%', display: "none" }}>
-                Copied to clipboard
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="d-flex justify-content-center">
+                        <div class="col-lg-8 col-12">
+                            <div className='d-flex justify-content-center'>
+                                <div class="alert alert-success text-center" id="savedcopy-alert" style={{ position: 'fixed', zIndex: 1000, bottom: 10, width: '50%', display: "none" }}>
+                                    Copied to clipboard
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
+
             <div class="text-black" style={{ padding: 6 }} >
                 <div class="fluid-container" >
                     <div class="row">
