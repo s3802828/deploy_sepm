@@ -70,7 +70,7 @@ export default function AddAdmin() {
                                     height='45%'
                                 />
                             </div>
-                            <h1 className='h3 mb-3 fw-normal text-center'>
+                            <h1 className='h3 mb-3 fw-normal text-center' style={{color: "#ffc13b"}}>
                                 REGISTER NEW ADMIN
                             </h1>
 
@@ -107,7 +107,7 @@ export default function AddAdmin() {
                                     {errors.email?.message}
                                 </div>
                             </div>
-                            <button className='w-100 btn btn-lg btn-primary mt-3' type='submit'>REGISTER</button>
+                            <button className='w-100 btn btn-lg btn-warning mt-3' type='submit'>REGISTER</button>
                         </form>
                         {/* // ) : (
                     //     <div>

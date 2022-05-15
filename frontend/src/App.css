@@ -47,7 +47,7 @@
   content: '';
   border-left: 6px solid transparent;
   border-right: 6px solid transparent;
-  border-top: 6px solid #282c34;
+  border-top: 6px solid #1e3d59;
   position: absolute;
   bottom: -6px;
   left: 50%;
@@ -64,20 +64,21 @@
 
 .lined .nav-link.active {
   background: none;
-  color: #555;
-  border-color: #282c34;
+  color: #1e3d59;
+  border-color: #1e3d59;
 }
 
 .nav-pills .nav-link {
-  color: #555;
+  color: white;
 }
 .text-uppercase {
   letter-spacing: 0.1em;
 }
 
 .nav-tabs .nav-item .nav-link.active {
-  background-color: #282c34;
-  color: white;
+  background-color: #1e3d59;
+  color: #ffc13b;
+  font-weight: bold;
 }
 
 ::-webkit-scrollbar {

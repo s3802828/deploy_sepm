@@ -60,7 +60,7 @@ export default function ChangePass() {
                     <div class="row justify-content-center">
                         <div class="col-xl-4 col-lg-6 col-sm-8 col-10">
 
-                            <h2 class="mb-3 mt-10 text-center">CHANGE PASSWORD</h2>
+                            <h2 class="mb-3 mt-10 text-center" style={{color: "#ffc13b"}}>CHANGE PASSWORD</h2>
 
                             <form onSubmit={handleSubmit(changepass)}>
 
@@ -98,7 +98,7 @@ export default function ChangePass() {
                                     </div>
                                 </div>
                                 <div class="d-grid gap-2 d-flex justify-content-center">
-                                    <button type="submit" class="btn btn-primary btn-lg w-100">CHANGE PASSWORD</button>
+                                    <button type="submit" class="btn btn-warning btn-lg w-100">CHANGE PASSWORD</button>
                                 </div>
 
                             </form>

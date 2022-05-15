@@ -29,20 +29,20 @@ export default function PersonalCheatSheetTab() {
         <div>
 
             {userSavedFunctionsList.map((element) => {
-                return <table class="table table-striped">
+                return <table class="table table-striped" style={{ border: "1px solid white" }}>
                     <thead>
                         <tr>
-                            <th scope="col"><h3>{element._id}</h3></th>
+                            <th scope="col"><h3 class="text-center" style={{color: "#ffc13b"}}>{element._id}</h3></th>
                         </tr>
                     </thead>
 
                     {element.topics.map((func) => {
                         return (
-                            <tbody>
+                            <tbody style={{ borderTop: "1px solid white" }}>
                                 <tr>
                                     <th scope="row">
                                         <div class="d-flex">
-                                            <h4 class="ml-3 mt-2">{func.category}</h4>
+                                            <h5 class="ml-3 mt-2" style={{color: "#ffc13b"}}>{func.category}</h5>
                                         </div>
                                     </th>
                                 </tr>

@@ -45,15 +45,15 @@ export default function UserSavedFunctions({ func_detail, user_id }) {
                                 <button class="btn btn-outline-danger" onClick={() => {
                                     dispatch(unsavedFunction(func_detail._id, authData?._id))
                                 }} >
-                                    <i class="bi bi-trash"></i>                               
-                                 </button>
+                                    <i class="bi bi-trash"></i>
+                                </button>
                             </span>
                         </div> : <></>}
                         <div class="col-10" >
-                            <h5>{func_detail.name}</h5>
+                            <h5 style={{ color: "white" }}>{func_detail.name}</h5>
                         </div>
                         <div class="col-1" >
-                            <img src={open == false ? "https://cdn-icons-png.flaticon.com/512/271/271210.png" : "https://cdn-icons-png.flaticon.com/512/271/271239.png"} style={{ width: 20, height: 20 }} onClick={() => setOpen(!open)} />
+                            <h3>{open == false ? <i class="bi bi-caret-down-fill" style={{ color: "white" }} onClick={() => setOpen(!open)} ></i> : <i class="bi bi-caret-up-fill" style={{ color: "white" }} onClick={() => setOpen(!open)}></i>}</h3>
 
                         </div>
                     </div>

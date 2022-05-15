@@ -4,15 +4,15 @@ export default function UserPost({ post, userInfo }) {
         
         <div class="container-fluid">
             <div class="card mb-4 mt-3 row">
-                <div class="card-header text-muted">
+                <div class="card-header text-muted" style={{backgroundColor: "#1e3d59", color: "white"}}>
                     <div>
                         <a
                             href = "#"
-                            style={{ "text-decoration": "none", color: "black" }}
+                            style={{ "text-decoration": "none", color: "white" }}
                         >
                             Posted by: @{userInfo.name}&nbsp;({userInfo.username})
                         </a>
-                        <span class="float-end">
+                        <span class="float-end" style={{color: "white"}}>
                             {moment(post.createdAt).fromNow()}
                         </span>
                     </div>
