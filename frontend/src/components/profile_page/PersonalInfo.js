@@ -26,7 +26,7 @@ export default function PersonalInfo({ userInfo }) {
                     {/* <h4>{authData?.name}&nbsp;({authData?.username})</h4> */}
                     {authData?._id == userIdParams &&
                         <div class="btn-group ms-auto">
-                            <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                            <button type="button" class="btn btn-warning dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
                                 <i class="bi bi-gear"></i>
                             </button>
                             <ul class="dropdown-menu">

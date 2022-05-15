@@ -9,7 +9,7 @@ export default function PageNotFound() {
                         <div class="col-xl-4 col-lg-6 col-sm-8 col-10">
                             <div style={{ marginLeft: '35%' }}>
                                 <img
-                                    className='mb-4 mx-auto'
+                                    className='mb-4 mx-auto border border-warning'
                                     src={weblogo}
                                     alt='Web Logo'
                                     width='45%'

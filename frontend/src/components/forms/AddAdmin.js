@@ -63,7 +63,7 @@ export default function AddAdmin() {
                         <form onSubmit={handleSubmit(addadmin)}>
                             <div style={{ marginLeft: '35%' }}>
                                 <img
-                                    className='mb-4 mx-auto'
+                                    className='mb-4 mx-auto border border-warning'
                                     src={weblogo}
                                     alt='Web Logo'
                                     width='45%'
