@@ -19,7 +19,11 @@ exports.fetchOwnedPosts = async (req, res) => {
             return res.send(error)
             
         } else {
-            return res.send(data)
+            if(data){
+                return res.send(data)
+            } else {
+                return res.send(undefined)
+            }
         }
     })
 }

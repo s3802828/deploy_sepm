@@ -15,20 +15,9 @@ export default function UserSavedFunctions({ func_detail, user_id }) {
         navigator.clipboard.writeText(text);
         document.getElementById("savedcopy-alert").style.display = "block";
         setTimeout(() => { document.getElementById("savedcopy-alert").style.display = "none" }, 2000);
-        // alert("Copied text");
+        
 
     }
-    // useEffect(() => {
-    //     dispatch(getSavedFunction(authData._id))
-    // }, [dispatch])
-
-    // const usersavedFunction = useSelector((state) => state.profileSavedFunction)
-
-    // useEffect(() => {
-    //     if (authData?.savedFunction.includes(func._id)){
-    //         setClicked(true)
-    //     }
-    // }, [])
 
 
 

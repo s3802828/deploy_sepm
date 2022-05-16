@@ -8,7 +8,6 @@ export default (comments = [], action) => {
         case UPDATE_COMMENT:
             return action.payload;
         case DELETE_COMMENT:
-            console.log(comments.filter((comment) => comment._id != action.payload))
             return comments.filter((comment) => comment._id != action.payload);
         default:
             return comments;

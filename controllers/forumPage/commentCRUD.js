@@ -6,7 +6,6 @@ const bucketName = "csfunctions-web-app/commentUploads"
 
 exports.addComment = async function (req, res) {
     if (req.file) {
-        console.log(req.file)
         const file = req.file;
 
         const result = await commentModel.create({
@@ -53,7 +52,6 @@ exports.addComment = async function (req, res) {
                     console.log(error)
                     return res.send([])
                 } else {
-                    console.log(data)
                     return res.send(data)
                 }
             })
@@ -101,7 +99,6 @@ exports.addComment = async function (req, res) {
                     console.log(error)
                     return res.send([])
                 } else {
-                    console.log(data)
                     return res.send(data)
                 }
             })
@@ -113,15 +110,12 @@ exports.addComment = async function (req, res) {
 
 exports.editComment = function (req, res) {
 
-    // console.log("Edit comment")
-    console.log(req.file)
     if (req.file) {
         const file = req.file;
 
         //Get the file of current image
         commentModel.findOne({ _id: mongoose.Types.ObjectId(req.body._id) }, async function (error, result) {
 
-            console.log("Found comment")
             if (result) {
                 if (result.images) {
                     //Remove current image from storage 
@@ -168,7 +162,6 @@ exports.editComment = function (req, res) {
                             console.log(error)
                             return res.send([])
                         } else {
-                            console.log(data)
                             return res.send(data)
                         }
                     })
@@ -187,7 +180,6 @@ exports.editComment = function (req, res) {
             if (error) {
                 console.log(error)
             } else {
-                console.log(result)
                 res.send(result)
             }
         })
@@ -209,8 +201,6 @@ exports.deleteComment = function (req, res) {
         if (result.images) {
             deleteFile(result.images, bucketName)
         }
-
-        // console.log(result)
         res.send("Deleted")
 
     })

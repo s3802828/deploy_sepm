@@ -2,7 +2,6 @@ import * as api from "../api/user";
 import { SIGN_UP, LOGIN, GET_ROLE, LOGOUT } from "../constants/actionTypes";
 
 export const getRole = () => async (dispatch) => {
-    console.log("helllooooo")
     try {
         var data = []
         const isAdmin = await api.checkAdmin()
@@ -16,8 +15,6 @@ export const getRole = () => async (dispatch) => {
             data.push('user')
             userInfo = isUser.data.userInfo
         }
-
-        console.log(userInfo);
         
         dispatch({type: GET_ROLE, payload: data, userInfo: userInfo})
     } catch (error) {

@@ -7,9 +7,7 @@ import { nl2br } from '../../utils/index'
 
 export default function PersonalInfo({ userInfo }) {
     const userIdParams = userInfo._id
-    console.log(userIdParams)
     const { authData } = useSelector((state) => state.authReducer)
-    console.log(authData)
 
     const user_id = authData?._id
     return (

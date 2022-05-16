@@ -9,7 +9,6 @@ var mongoose = require('mongoose');
 const bucketName = "csfunctions-web-app/postUploads"
 
 exports.addPost = function (req, res) {
-    console.log(req.file)
     if (req.file) {
         const file = req.file;
         postModel.create({
@@ -25,7 +24,6 @@ exports.addPost = function (req, res) {
                 console.log(err)
             }
             const s3Res = await uploadFile(file, bucketName);
-            console.log(s3Res)
             res.send(result)
         })
     } else {
@@ -40,8 +38,6 @@ exports.addPost = function (req, res) {
             if (err) {
                 console.log(err)
             }
-            // const s3Res = await uploadFile(file, bucketName);
-            console.log(result)
             res.send(result)
         })
     }
@@ -57,7 +53,6 @@ exports.updatePost = function (req, res) {
         //Get the file of current image
         postModel.findOne({ _id: req.body._id }, function (error, result) {
 
-            console.log("Found comment")
             if (result) {
                 if (result.images) {
                     //Remove current image from storage 
@@ -77,7 +72,6 @@ exports.updatePost = function (req, res) {
                         console.log(err)
                     }
                     const s3Res = await uploadFile(file, bucketName);
-                    console.log(s3Res)
                     res.send(result)
                 })
 
@@ -96,7 +90,6 @@ exports.updatePost = function (req, res) {
             if (err) {
                 console.log(err)
             }
-            console.log(result)
             res.send(result)
         })
     }
@@ -105,7 +98,6 @@ exports.updatePost = function (req, res) {
 }
 
 exports.deletePost = function (req, res) {
-    console.log("hello " + req.params.id)
     postModel.findOneAndDelete({
         _id: mongoose.Types.ObjectId(req.params.id)
     }, function (err, result) {
@@ -117,7 +109,6 @@ exports.deletePost = function (req, res) {
             deleteFile(result.images, bucketName)
         }
 
-        console.log(result)
         res.send(result)
     })
 }
@@ -209,7 +200,12 @@ exports.fetchPostDetail = async (req, res) => {
             console.log(error)
             return res.send([])
         } else {
-            return res.send(data)
+            if(data.toString() != ''){
+                return res.send(data)
+            } else {
+                return res.send(undefined)
+            }
+            
         }
     })
 }

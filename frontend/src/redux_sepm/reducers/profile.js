@@ -7,7 +7,6 @@ export default (user = [], action) => {
         case FETCH_USER:
             return action.payload;
         default:
-            console.log("Default");
             return user;
     }
 }

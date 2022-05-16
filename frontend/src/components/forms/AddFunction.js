@@ -101,7 +101,6 @@ export default function AddFunction() {
 
     const add = (e) => {
         // e.preventDefault();
-        console.log(functionData)
         dispatch(addFunction(functionData))
         window.location.replace(`/client/cheatsheet/${topic_id.language_id}`)
     }

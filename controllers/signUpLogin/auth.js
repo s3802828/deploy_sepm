@@ -24,14 +24,6 @@ exports.signup = async (req,res) => {
         accessToken: jwtToken
     }
     return res.send(authenticatedUser)
-    // var newToken = {
-    //     userId: user._id,
-    //     token: crypto.randomBytes(32).toString("hex")
-    // }
-    // let savedToken = await new Token(newToken).save()
-    // const verifyLink = `${EMAIL_BASE_URL}/user/verify/${user._id}/${savedToken.token}`
-    // sendEmail.sendEmail(user.email, verifyLink)
-    // res.send({message:"Verification email has been sent to you. Please verify your email to continue!"})
 }
 
 exports.login = (req, res) => {
@@ -43,7 +35,7 @@ exports.login = (req, res) => {
             if (!bcrypt.compareSync(req.body.password, user.password)) {
                 return res.send({ message: "Wrong password. Please try again!" })
             } else {
-                // if (user.emailVerified) {
+                
                     let jwtToken = jwt.sign({ id: user._id }, SECRET_KEY, {
                         expiresIn: 10800
                     })
@@ -53,12 +45,6 @@ exports.login = (req, res) => {
                         accessToken: jwtToken
                     }
                     return res.send(authenticatedUser)
-                // } else {
-                //     return res.send({
-                //         deleteTokenUser: user._id,
-                //         message: "Your email has not been verified."
-                //     })
-                // }
             }
         } else {
             return res.send({ message: "Wrong username. Please try again!" })

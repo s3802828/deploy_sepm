@@ -106,9 +106,7 @@ export function EditProfile() {
 
     const update = (e) => {
         // e.preventDefault();
-        console.log(profileData)
         dispatch(updateProfile(profileData))
-        console.log(returnMessage)
     }
 
     return (
@@ -284,7 +282,6 @@ export function EditAvatar() {
     const [ava, setAva] = useState(null);
     const { authData } = useSelector((state) => state.authReducer)
 
-    console.log(authData);
 
     const validationSchema = Yup.object().shape({
         avatar: Yup.mixed()
@@ -329,13 +326,11 @@ export function EditAvatar() {
 
         dispatch(updateAva(authData._id, dataArray));
 
-        console.log(ava, authData._id);
     }
 
     function showPreview(event) {
         if (event.target.files.length > 0) {
             if (event.target.files[0].type.split("/")[0] == "image") {
-                // console.log(event.target.files[0].type.split("/")[0]);
                 var src = URL.createObjectURL(event.target.files[0]);
                 var preview = document.getElementById("ava-preview");
                 preview.src = src;

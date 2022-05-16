@@ -5,7 +5,6 @@ export default (posts = [], action) => {
         case FETCH_OWNED_POSTS:
             return action.payload;
         default:
-            console.log("Default");
             return posts;
     }
 }

@@ -15,7 +15,6 @@ exports.addFunction = function (req, res) {
         if (err) {
             console.log(err)
         }
-        console.log(result)
         res.send(result)
     })
 
@@ -37,7 +36,6 @@ exports.updateFunction = function (req, res) {
         if (err) {
             console.log(err)
         }
-        console.log(result)
         res.send(result)
     })
 }
@@ -49,7 +47,6 @@ exports.deleteFunction = function (req, res) {
         if (err) {
             console.log(err)
         }
-        console.log(result)
         res.send(result)
     })
 }

@@ -4,23 +4,6 @@ var languageModel = require('../../models/language').language;
 var categoryModel = require('../../models/category').category;
 var mongoose = require('mongoose');
 
-// exports.fetchSavedFunction = async (req, res) => {
-//     const savedFunctionArray = await userModel.find({
-//         _id: req.params.user_id,
-//     }).distinct('savedFunction')
-//     functionModel.find({
-//         function_id: { "$in" : 
-//         savedFunctionArray
-//     }
-//     }, function (error, data) {
-//         if (error) {
-//             console.log(error)
-//             return res.send([])
-//         } else {
-//             return res.send(data)
-//         }
-//     }).sort({name: 1})
-// }
 exports.fetchSavedFunction = async (req, res) => {
     const isValidId = mongoose.Types.ObjectId.isValid(req.params.user_id)
     if(!isValidId){
@@ -100,9 +83,13 @@ exports.fetchSavedFunction = async (req, res) => {
     ]).exec((error, data) =>{
         if (error) {
             console.log(error)
-            return res.send([])
+            return res.send(undefined)
         } else {
-            return res.send(data)
+            if(data.toString() != ''){
+                return res.send(data)
+            } else {
+                return res.send(undefined)
+            }
         }
     })
 }

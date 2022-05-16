@@ -69,13 +69,8 @@ export default function Comment({ comment, post_id }) {
         if (commentData.images != null) {
             dataArray.append("images", commentData.images, { type: 'image/jpeg' });
         }
-        console.log(commentData.images)
         dispatch(updateComment(post_id, dataArray));
     }
-    // const {post_id} = useParams()
-    console.log(comment?.images)
-
-    console.log(authData?.avatar)
 
     return (
         <div>
@@ -131,7 +126,7 @@ export default function Comment({ comment, post_id }) {
                                         <div class="custom-file my-2">
                                             <input type="file" name="images" className={`custom-file-input ${errors.images
                                                 ? 'is-invalid'
-                                                : ''}`} {...register('images')} onChange={(e) => { console.log(e.target.files[0]); setCommentData({ ...commentData, images: e.target.files[0] }) }} class="custom-file-input" id="inputGroupFile01" />
+                                                : ''}`} {...register('images')} onChange={(e) => { setCommentData({ ...commentData, images: e.target.files[0] }) }} class="custom-file-input" id="inputGroupFile01" />
                                             <div className='invalid-feedback'>
                                                 {errors.images?.message}
                                             </div>

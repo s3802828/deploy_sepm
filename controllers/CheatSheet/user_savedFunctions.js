@@ -16,7 +16,6 @@ exports.userSave = (req, res) => {
 
         }
         
-        console.log("Zooo")
         return res.send(result)
         
     })
@@ -26,7 +25,6 @@ exports.userSave = (req, res) => {
 
 
 exports.userUnSave = async (req, res) => {
-    console.log("unsaveeee")
     const savedFunctionArray = await User.findByIdAndUpdate({ _id: mongoose.Types.ObjectId(req.body._id) },{
 
         $pull: { savedFunction: req.params.id }
@@ -39,14 +37,10 @@ exports.userUnSave = async (req, res) => {
 
         }
         if(result){
-            console.log(result)
             return result
         }
 
     }).clone().catch((error) => console.log(error))
-    // const savedFunctionArray = await userModel.find({
-    //     _id: mongoose.Types.ObjectId(req.params.user_id),
-    // }).distinct('savedFunction')
     functionModel.aggregate([
         {$match: {_id: {$in: savedFunctionArray.savedFunction}}},
         {$lookup: {
@@ -89,14 +83,6 @@ exports.userUnSave = async (req, res) => {
                 _id: {"language":"$languages.name", "category": "$categories.name"}, 
                 topics : {
                     $push: "$$ROOT"
-                //     {
-                //     $group : {
-                //         _id: "categories.name",
-                //         functions : {
-                //             $push: "$name"
-                //         }
-                // }
-                // }
                 } 
             }
         },

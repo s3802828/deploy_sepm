@@ -109,10 +109,8 @@ export default function EditPost() {
     }, [authData, post_detail])
 
     const topicList = useSelector((state) => state?.categories);
-    console.log(postData._id)
 
     const update = () => {
-        console.log(postData)
 
         const dataArray = new FormData();
 

@@ -11,13 +11,10 @@ export default (posts = [], action) => {
         case DISLIKE:
             return posts;
         case CREATE_POST:
-            //console.log("CREATE_POST");
             return [...posts, action.payload];
         case UPDATE_POST:
-            //console.log("UPDATE_POST");
             return [...posts, action.payload];
         case DELETE_POST:
-            //console.log("DELETE POST");
             return posts.filter((post) => post._id != action.payload)
         case FETCH_POST_DETAIL:
             return action.payload;

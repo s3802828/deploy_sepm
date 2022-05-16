@@ -23,7 +23,6 @@ export default function PersonalCheatSheetTab() {
     }, [dispatch])
     const userSavedFunctionsList = useSelector((state) => state.profileSavedFunction)
 
-    // console.log(userSavedFunctionsList)
 
     return (
         <div>

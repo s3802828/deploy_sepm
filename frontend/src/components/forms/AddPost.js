@@ -84,7 +84,6 @@ export default function AddPost({ lang, language_id, topic_id }) {
     // const languages = useSelector((state) => state.languages);
 
     const add = () => {
-        console.log(postData)
 
         const dataArray = new FormData();
 
@@ -95,7 +94,6 @@ export default function AddPost({ lang, language_id, topic_id }) {
         if (postData.images != null) {
             dataArray.append("images", postData.images);
         }
-        console.log(postData.images)
         dispatch(addPost(dataArray))
         window.location.replace(`/client/discussion/${language_id}/${topic_id}`)
     }

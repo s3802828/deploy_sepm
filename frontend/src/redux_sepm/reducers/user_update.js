@@ -13,7 +13,6 @@ export default (user = [], action) => {
         case UPDATE_USER_INFO:
             return action.payload;
         default:
-            console.log("Default");
             return user;
     }
 }

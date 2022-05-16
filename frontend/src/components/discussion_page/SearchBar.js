@@ -17,7 +17,6 @@ export default function SearchBar({ category_id, language_id }) {
     useEffect(() => {
         if (searchResult) {
             document.getElementById("searchResultButton").click();
-            console.log(searchResult)
         }
     }, [searchResult])
     return (

@@ -33,12 +33,6 @@ export default function UserPost({ post, userInfo }) {
 
                             <div class="card-footer text-muted  d-flex bd-highlight">
                                 <span class='mt-2'>
-                                    {/* <span style={props.isUser && liked ? { color: "#0d6efd" } : {}} onClick={props.isUser && (liked ? () => { dis_like(props.element._id); setLiked(false); } : () => { create_like(props.element._id); setLiked(true); })}> */}
-                                    {/* <i
-                            class="fa fa-thumbs-up hover-icon vote-button w3-large"
-                            id="post-{{$post->id}}-up"
-                            value="0"
-                        ></i> */}
                                     <i class="bi bi-hand-thumbs-up"></i>
                                 </span>
                                 <span class="numberOfLikes p-2 bd-highlight">
@@ -47,10 +41,9 @@ export default function UserPost({ post, userInfo }) {
                                 <span class='mt-2'>
                                     <i class="bi bi-reply"></i>
                                 </span>
-                                <span class="numberOfLikes ms-2 p-2 bd-highlight">
+                                <a href={`/client/postdetail/${post._id}`} style={{ "textDecoration": "none", color: "black" }}><span class="numberOfLikes ms-2 p-2 bd-highlight">
                                     Replies
-                                </span>
-                                {/* </span> */}
+                                </span></a>
                                 &nbsp;&nbsp;&nbsp;&nbsp;
                             </div>
                         </div>

@@ -94,7 +94,6 @@ export default function EditFunction({ currFunction, category_id }) {
 
     const update = (e) => {
         // e.preventDefault();
-        console.log(functionData)
         dispatch(updateFunction(functionData))
         window.location.replace(`/client/cheatsheet/${topic_id.language_id}`)
     }

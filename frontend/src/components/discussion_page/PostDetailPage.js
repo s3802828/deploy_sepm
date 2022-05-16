@@ -17,7 +17,6 @@ export default function PostDetailPage() {
 
     const dispatch = useDispatch();
     const { authData, role } = useSelector((state) => state?.authReducer)
-    console.log(role)
 
     const validationSchema = Yup.object().shape({
         content: Yup.string().trim()
@@ -64,7 +63,6 @@ export default function PostDetailPage() {
     }, [dispatch])
 
     const post_detail = useSelector((state) => state.posts)
-    console.log(post_detail)
 
     const post_comments = useSelector((state) => state.comment)
 
@@ -82,7 +80,6 @@ export default function PostDetailPage() {
 
         dispatch(addComment(dataArray));
 
-        console.log(commentData.images);
     }
 
     return (
@@ -157,7 +154,7 @@ export default function PostDetailPage() {
                                         <div class="custom-file">
                                             <input type="file" name="images" className={`custom-file-input ${errors.images
                                                 ? 'is-invalid'
-                                                : ''}`} {...register('images')} onChange={(e) => { console.log(e.target.files[0]); setCommentData({ ...commentData, images: e.target.files[0] }) }} id="inputGroupFile01" />
+                                                : ''}`} {...register('images')} onChange={(e) => { setCommentData({ ...commentData, images: e.target.files[0] }) }} id="inputGroupFile01" />
                                             <div className='invalid-feedback'>
                                                 {errors.images?.message}
                                             </div>

@@ -11,7 +11,6 @@ const authReducer = (state = {authData: null, role: null}, action) => {
                 );
             }
             state = {...state, authData: action?.payload}
-            console.log(state)
             return state;
         case LOGOUT:
             localStorage.removeItem('user');

@@ -3,10 +3,7 @@ import { UNSAVE, SAVE, FETCH_ALL, FETCH_BY_LANGUAGE, FETCH_BY_TOPIC, SEARCH_FUNC
 
 export const getLanguage = () => async (dispatch) => {
     try {
-        console.log("getLanguage")
         const { data } = await api.fetchLang();
-        
-
         dispatch({ type: FETCH_ALL, payload: data });
 
     } catch (error) {
@@ -75,8 +72,6 @@ export const savedFunction = (id, user_id) => async (dispatch) => {
 
         const { data } = await api.saveFunction(id, user_id);
 
-        console.log("Action");
-
         dispatch({ type: SAVE, payload: data });
 
     } catch (error) {
@@ -90,7 +85,6 @@ export const unsavedFunction = (id, user_id) => async (dispatch) => {
 
     try {
         const { data } = await api.unsaveFunction(id, user_id);
-        console.log("action")
         dispatch({ type: UNSAVE, payload: data });
 
     } catch (error) {

@@ -6,15 +6,12 @@ const bucketName = "csfunctions-web-app/userUploads"
 
 exports.updateAvatar = function (req, res) {
 
-    // console.log(req.body);
-    console.log(req.file);
 
     if (req.file) {
         const file = req.file;
 
         userModel.findOne({ _id: mongoose.Types.ObjectId(req.params.id) }, async function (error, result) {
 
-            console.log("User")
             if (result) {
 
                 if (result.avatar) {
@@ -68,7 +65,12 @@ exports.fetchUser = (req, res) => {
             console.log(error)
             return res.send([])
         } else {
-            return res.send(data)
+            if(data){
+                return res.send(data)
+            } else {
+                return res.send(undefined)
+            }
+            
         }
     })
 }
@@ -87,7 +89,6 @@ exports.updatePersonalInfo = function (req, res) {
         if (err) {
             console.log(err)
         }
-        console.log(result)
         res.send(result)
     })
 }

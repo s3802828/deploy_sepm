@@ -5,7 +5,6 @@ export default (topic = [], action) => {
         case FETCH_BY_TOPIC:
             return action.payload;
         default:
-            console.log("Default");
             return topic;
     }
 }

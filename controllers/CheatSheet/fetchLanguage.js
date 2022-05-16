@@ -60,8 +60,6 @@ exports.fetchFunctionsForTopic = async (req, res) => {
         language_id: language._id,
     }).distinct('_id');
 
-    // console.log(topics);
-
 
     functionModel.find({
         category_id: {
@@ -76,6 +74,8 @@ exports.fetchFunctionsForTopic = async (req, res) => {
         } else {
             if (data) {
                 return res.send(data)
+            } else {
+                return res.send(undefined)
             }
         }
     }).sort({ name: 1 })
@@ -123,7 +123,6 @@ exports.searchByFunction = async (req, res) => {
         if (error) {
             return res.send(error)
         } else {
-            console.log("helloo")
             if (result) {
                 res.send(result)
             }

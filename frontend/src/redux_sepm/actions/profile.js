@@ -15,7 +15,6 @@ export const getOwnedPosts = (id) => async (dispatch) => {
 export const getSavedFunction = (id) => async (dispatch) => {
     try {
         const { data } = await api.fetchSavedFunction(id);
-        console.log("ffff")
 
         dispatch({ type: FETCH_SAVED_FUNCTION, payload: data});
 
@@ -27,7 +26,6 @@ export const getSavedFunction = (id) => async (dispatch) => {
 
 export const updateAva = (user_id, avatar) => async (dispatch) => {
     try {
-        console.log("updateAvaaaaa")
         const {data} = await api.updateAvatar(user_id, avatar);
         window.location.replace(`/client/profile/${user_id}`)
         dispatch({ type: UPDATE_AVATAR, payload: data });
@@ -38,11 +36,9 @@ export const updateAva = (user_id, avatar) => async (dispatch) => {
 }
 
 export const updateProfile = (updateProfile) => async (dispatch) => {
-    console.log(updateProfile)
     try {
         const { data } = await api.updateProfile(updateProfile);
 
-        console.log("success")
         dispatch({ type: UPDATE_USER_INFO, payload: data });
         if(!data.message){
             window.location.replace(`/client/profile/${updateProfile?._id}`)

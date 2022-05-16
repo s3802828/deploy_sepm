@@ -7,7 +7,6 @@ export default (func = [], action) => {
         case UNSAVE:
             return action.payload;
         default:
-            console.log("Default");
             return func;
     }
 }

@@ -11,13 +11,10 @@ export const functions = (funct = [], action) => {
         case FETCH_BY_FUNCTION:
             return action.payload;
         case CREATE_FUNCTION:
-            //console.log("CREATE_FUNCTION");
             return [...funct, action.payload];
         case UPDATE_FUNCTION:
-            //console.log("UPDATE_FUNCTION");
             return [...funct, action.payload]
         case DELETE_FUNCTION:
-            //console.log("DELETE_FUNCTION");
             return funct.filter((func) => func._id != action.payload)
         default:
             return funct;

@@ -9,33 +9,23 @@ import { useParams } from 'react-router-dom';
 
 export default function ProfilePage() {
     
-    // console.log(posts)
+    
     const dispatch = useDispatch();
-    // const {authData} = useSelector((state) => state?.authReducer)
-
-    // console.log(authData)
+    
 
     const user_id = useParams();
 
-    console.log("user_id: " + user_id)
 
     useEffect(() => {
         dispatch(fetchUser(user_id.user_id))
         dispatch(getOwnedPosts(user_id.user_id));
     }, [dispatch])
 
-    // useEffect(() => {
-    //     dispatch(getSavedFunction(user_id.user_id));
-    // }, [dispatch])
 
     const userPostList = useSelector((state) => state.profileOwnedPost)
     const userInfo = useSelector((state) => state.profile)
-    console.log("userInfo: " + userInfo.name)
 
-    // const userSavedFunctionsList = useSelector((state) => state.profileSavedFunction)
     
-    // console.log(userSavedFunctionsList)
-
     return (
         <div style={{ marginTop: 80, marginBottom: 80 }}>
 

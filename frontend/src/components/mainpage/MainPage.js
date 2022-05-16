@@ -18,7 +18,6 @@ export default function MainPage() {
 
 
     const languages = useSelector((state) => state.languages);
-    console.log(languages)
 
     return (
         <>

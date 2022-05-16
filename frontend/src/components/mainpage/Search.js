@@ -15,13 +15,11 @@ export default function Search({ language_id }) {
 
     // const languages = useSelector((state) => state.languages);
     const searching = (keyword) => {
-        console.log("helllooooooo")
         dispatch(searchFunction(language_id.language_id, keyword))
     }
     useEffect(() => {
         if (searchResult) {
             document.getElementById("searchResultButton").click();
-            console.log(searchResult)
         }
     }, [searchResult])
 
