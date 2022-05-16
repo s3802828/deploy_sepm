@@ -6,6 +6,6 @@ var { updatePersonalInfo } = require('../../controllers/ProfilePage/personalInfo
 
 router.put('/changepass/:id', changePassword);
 router.post('/addadmin', [validateAuth.checkDuplicateEmail, validateAuth.checkDuplicateUsername] , addAdmin);
-router.put('/update', updatePersonalInfo)
+router.put('/update', [validateAuth.checkDuplicateEmail, validateAuth.checkDuplicateUsername], updatePersonalInfo)
 
 module.exports = router;

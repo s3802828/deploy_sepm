@@ -4,9 +4,9 @@ const checkDuplicateUsername = (req, res, next) => {
         if (error) {
             return res.send(error);
         }
-        if (user) {
+        if (!req.body._id && user || (req.body._id && user && req.body._id != user._id)) {
             return res.send({ message: "Username is already existed." })
-        }
+        } 
         next();
     })
 }
@@ -15,7 +15,7 @@ const checkDuplicateEmail = (req, res, next) => {
         if (error) {
             return res.send(error)
         }
-        if (user) {
+        if (!req.body._id && user || (req.body._id && user && req.body._id != user._id))  {
             return res.send({ message: "Email is already existed." })
         }
         next();

@@ -77,6 +77,8 @@ export function EditProfile() {
     });
 
     const { authData } = useSelector((state) => state.authReducer)
+    const returnMessage = useSelector((state) => state.user_update?.message)
+    
 
     const [profileData, setProfileData] = useState({
         _id: authData?._id,
@@ -106,7 +108,7 @@ export function EditProfile() {
         // e.preventDefault();
         console.log(profileData)
         dispatch(updateProfile(profileData))
-        window.location.replace(`/client/profile/${authData?._id}`)
+        console.log(returnMessage)
     }
 
     return (
@@ -129,11 +131,15 @@ export function EditProfile() {
                                             <h6>Username</h6>
                                             <div className='mb-3'>
                                                 <input type="text" name="username" value={profileData.username} aria-label="username" aria-describedby="basic-addon1"
-                                                    className={`form-control ${errors.username
+                                                    className={`form-control ${errors.username || returnMessage ===
+                                                        'Username is already existed.'
                                                         ? 'is-invalid'
                                                         : ''}`} {...register('username')}
                                                     onChange={(e) => setProfileData({ ...profileData, username: e.target.value })}></input>
                                                 <div className='invalid-feedback'>
+                                                    {returnMessage ===
+                                                        'Username is already existed.' &&
+                                                        returnMessage}{' '}
                                                     {errors.username?.message}
                                                 </div>
                                             </div>
@@ -151,11 +157,16 @@ export function EditProfile() {
                                             <h6>Email</h6>
                                             <div className='mb-3'>
                                                 <input type="text" name="email" value={profileData.email} aria-label="email" aria-describedby="basic-addon1"
-                                                    className={`form-control ${errors.email
+                                                    className={`form-control ${errors.email ||
+                                                        returnMessage ===
+                                                        'Email is already existed.'
                                                         ? 'is-invalid'
                                                         : ''}`} {...register('email')}
                                                     onChange={(e) => setProfileData({ ...profileData, email: e.target.value })}></input>
                                                 <div className='invalid-feedback'>
+                                                    {returnMessage ===
+                                                        'Email is already existed.' &&
+                                                        returnMessage}{' '}
                                                     {errors.email?.message}
                                                 </div>
                                             </div>

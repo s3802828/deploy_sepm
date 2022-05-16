@@ -1,5 +1,5 @@
 import * as api from '../api/profile'
-import { FETCH_SAVED_FUNCTION, FETCH_OWNED_POSTS, UPDATE_AVATAR } from '../constants/actionTypes';
+import { FETCH_SAVED_FUNCTION, FETCH_OWNED_POSTS, UPDATE_AVATAR, UPDATE_USER_INFO } from '../constants/actionTypes';
 
 export const getOwnedPosts = (id) => async (dispatch) => {
     try {
@@ -43,8 +43,10 @@ export const updateProfile = (updateProfile) => async (dispatch) => {
         const { data } = await api.updateProfile(updateProfile);
 
         console.log("success")
-
-        dispatch({ type: "UPDATE_PROFILE", payload: data });
+        dispatch({ type: UPDATE_USER_INFO, payload: data });
+        if(!data.message){
+            window.location.replace(`/client/profile/${updateProfile?._id}`)
+        }
     }
     catch (error) {
         console.log(error.message);
