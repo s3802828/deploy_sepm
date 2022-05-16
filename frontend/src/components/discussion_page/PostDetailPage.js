@@ -86,7 +86,7 @@ export default function PostDetailPage() {
     }
 
     return (
-        <div class="container-fluid" style={{ marginTop: 80, marginBottom: 80 }}>
+        <div class="container" style={{ marginTop: 80, marginBottom: 80 }}>
             <div class="row justify-content-center">
                 <div class="col-10">
                     <div class="row my-3">
@@ -95,7 +95,7 @@ export default function PostDetailPage() {
                             <img src={`${post_detail[0]?.users[0]?.avatar ? `https://csfunctions-web-app.s3.amazonaws.com/${post_detail[0]?.users[0]?.avatar}` : 'http://cdn.onlinewebfonts.com/svg/img_24787.png'} `}
                                 class="img rounded-circle m-2" width="30" height="30" alt="" style={{border: "1px solid #ffc13b"}}></img>
                             <a href={`/client/profile/${post_detail[0]?.user_id}`} className='my-auto' style={{ "text-decoration": "none", color: "white" }}>
-                                <h1>{post_detail[0]?.users[0]?.name}&nbsp;({post_detail[0]?.users[0]?.username})</h1>
+                                <h3>{post_detail[0]?.users[0]?.name}&nbsp;({post_detail[0]?.users[0]?.username})</h3>
                             </a>
                             &nbsp;&nbsp;&nbsp;
                             <div>
@@ -106,7 +106,7 @@ export default function PostDetailPage() {
                         <hr style={{color: "#1e3d59"}}></hr>
                         <div className="row d-flex">
                             <div className='col-md-7 col'>
-                                <h2 style={{color: "#ffc13b"}}>{post_detail[0]?.title}</h2>
+                                <h1 style={{color: "#ffc13b"}}>{post_detail[0]?.title}</h1>
                             </div>
                             <div className='col-md-5 col d-flex justify-content-end align-items-center'>
                                 <div className='ms-auto'>
@@ -167,7 +167,7 @@ export default function PostDetailPage() {
                                 </form>
                             </div>
                             }
-                            <div class="col-10 mt-3">
+                            <div class="col-sm-12 col-lg-10 col-md-12 mt-3">
                                 {post_comments.map((element) =>
 
                                     <Comment comment={element} post_id={post_id} post_detail={post_detail} />,
