@@ -34,9 +34,20 @@ export default function UserSavedFunctions({ func_detail, user_id }) {
 
     return (
         <div>
-            <div class="alert alert-success text-center" id="savedcopy-alert" style={{ position: 'fixed', bottom: 10, width: '85%', display: "none" }}>
-                Copied to clipboard
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="d-flex justify-content-center">
+                        <div class="col-lg-8 col-12">
+                            <div className='d-flex justify-content-center'>
+                                <div class="alert alert-success text-center" id="savedcopy-alert" style={{ position: 'fixed', zIndex: 1000, bottom: 10, width: '50%', display: "none" }}>
+                                    Copied to clipboard
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
+
             <div class="text-black" style={{ padding: 6 }} >
                 <div class="fluid-container" >
                     <div class="row">
@@ -45,15 +56,15 @@ export default function UserSavedFunctions({ func_detail, user_id }) {
                                 <button class="btn btn-outline-danger" onClick={() => {
                                     dispatch(unsavedFunction(func_detail._id, authData?._id))
                                 }} >
-                                    <i class="bi bi-trash"></i>                               
-                                 </button>
+                                    <i class="bi bi-trash"></i>
+                                </button>
                             </span>
                         </div> : <></>}
                         <div class="col-10" >
-                            <h5>{func_detail.name}</h5>
+                            <h5 style={{ color: "white" }}>{func_detail.name}</h5>
                         </div>
                         <div class="col-1" >
-                            <img src={open == false ? "https://cdn-icons-png.flaticon.com/512/271/271210.png" : "https://cdn-icons-png.flaticon.com/512/271/271239.png"} style={{ width: 20, height: 20 }} onClick={() => setOpen(!open)} />
+                            <h3>{open == false ? <i class="bi bi-caret-down-fill" style={{ color: "white" }} onClick={() => setOpen(!open)} ></i> : <i class="bi bi-caret-up-fill" style={{ color: "white" }} onClick={() => setOpen(!open)}></i>}</h3>
 
                         </div>
                     </div>

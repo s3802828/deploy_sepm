@@ -72,7 +72,7 @@ export default function Signup() {
                     <div class="row justify-content-center">
                         <div class="col-xl-4 col-lg-6 col-sm-8 col-10">
                             <div style={{ marginLeft: '35%' }}>
-                                <img className='mb-4 mx-auto' src={weblogo} alt='Web Logo' width='45%' height='45%' />
+                                <img className='mb-4 mx-auto border border-warning' src={weblogo} alt='Web Logo' width='45%' height='45%' />
                             </div>
                             <h2 class="mb-3 mt-10 text-center" style={{color: "#ffc13b"}}>SIGN UP</h2>
                             <form onSubmit={handleSubmit(signup)}>
