@@ -54,7 +54,7 @@ export default function ChangePass() {
 
 
     return (
-        <div style={{ marginTop: "150px", marginBottom: 80 }}>
+        <div style={{ marginTop: "250px", marginBottom: 80 }}>
             <div class="d-flex align-items-center h-100">
                 <div class="container-fluid">
                     <div class="row justify-content-center">
@@ -107,6 +107,7 @@ export default function ChangePass() {
                     </div>
                 </div>
             </div>
+            <div style={{height: "150px"}}></div>
         </div>
     )
 

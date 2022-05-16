@@ -114,7 +114,7 @@ export default function AddFunction() {
                         <div class="col-2"></div>
                         <div class="col-8">
                             <div class="row mb-3">
-                                <h3 class="text-center">ADD NEW FUNCTION</h3>
+                                <h3 class="text-center" style={{color: "#ffc13b"}}>ADD NEW FUNCTION</h3>
                             </div>
                             <form class="row mb-5" onSubmit={handleSubmit(add)}>
                                 <div class="row ms-1">
@@ -144,7 +144,7 @@ export default function AddFunction() {
                                     </div>
                                 </div>
                                 <div class="row ms-1 mb-3">
-                                    <div class="col-lg-6 col-12 my-1">
+                                    <div class="col-lg-6 col-12 my-1" style={{color: "#ffc13b"}}>
                                         Language:&nbsp;
                                         {languages.filter(lang => lang._id == topic_id.language_id).map(lang => {
                                             return (
@@ -225,7 +225,7 @@ export default function AddFunction() {
                                 </div>
                                 <div class="row ms-1">
                                     <div class="d-grid gap-2 d-flex justify-content-end">
-                                        <button type="submit" class="btn btn-primary"
+                                        <button type="submit" class="btn btn-warning"
                                         // onClick={() => {
                                         //     unregister('name', { keepDefaultValue: true, });
                                         //     unregister('params', { keepDefaultValue: true, });

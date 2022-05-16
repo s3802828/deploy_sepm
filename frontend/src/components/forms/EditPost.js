@@ -130,7 +130,7 @@ export default function EditPost() {
     }
 
     return (
-        <div class="container-fluid" style={{ marginTop: 80, marginBottom: 80 }}>
+        <div class="container-fluid" style={{ marginTop: "300px", marginBottom: 80 }}>
             <div className="row justify-content-center">
                 <div className='card mb-4 col-6'>
 
@@ -229,6 +229,7 @@ export default function EditPost() {
                     </div>
                 </div>
             </div>
+            <div style={{height: "100px"}}></div>
         </div>
     )
 }

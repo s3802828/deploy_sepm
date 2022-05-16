@@ -131,6 +131,7 @@ export default function AddAdmin() {
                     <div className='col-lg'></div>
                 </div>
             </div>
+            <div style={{height: "100px"}}></div>
         </div>
     )
 }

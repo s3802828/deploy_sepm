@@ -83,17 +83,17 @@ export default function Comment({ comment, post_id }) {
                 <div class="row justify-content-center my-1">
                     <div class="col-1">
                     <img src={`${comment?.users[0]?.avatar ? `https://csfunctions-web-app.s3.amazonaws.com/${comment?.users[0]?.avatar}` : 'http://cdn.onlinewebfonts.com/svg/img_24787.png'} `}
-                                    class="img rounded-circle m-2" width="40" height="40" alt=""></img>
+                                    class="img rounded-circle m-2" width="40" height="40" alt="" style={{border: "1px solid #ffc13b"}}></img>
                     </div>
-                    <div class="col-10 rounded" >
-                        <div class="row justify-content-between ms-1 rounded" style={{ backgroundColor: "#ffc13b" }}>
+                    <div class="col-10 rounded" style={{ border: "2px solid #ffc13b", marginRight: "5%" }}>
+                        <div class="row justify-content-between ms-1 rounded" >
                             <div className="d-flex">
                                 {/* <img src={`${comment?.users[0]?.avatar ? `https://csfunctions-web-app.s3.amazonaws.com/${comment?.users[0]?.avatar}` : 'http://cdn.onlinewebfonts.com/svg/img_24787.png'} `}
                                     class="img rounded-circle m-2" width="40" height="40" alt=""></img> */}
                                 <a href={`/client/profile/${comment?.user_id}`} className='my-auto' style={{ "text-decoration": "none", color: "black" }}>
-                                    <h6>{comment?.users[0]?.name}&nbsp;({comment?.users[0]?.username})</h6></a>
+                                    <h6 style={{ color: "#ffc13b" }}>{comment?.users[0]?.name}&nbsp;({comment?.users[0]?.username})</h6></a>
                                 &nbsp;&nbsp;&nbsp;&nbsp;
-                                <p className='my-auto'>{moment(comment?.updatedAt).fromNow()}</p>
+                                <p className='my-auto' style={{ color: "#ffc13b" }}>{moment(comment?.updatedAt).fromNow()}</p>
                                 <div className="ms-auto my-auto">
                                     {authData && authData._id === comment?.user_id && (edit == true
                                         ? <div></div>
@@ -106,12 +106,12 @@ export default function Comment({ comment, post_id }) {
                                         //     </ul>
                                         // </div>
                                         <div className="d-flex">
-                                            <button class="btn btn-warning ms-auto" onClick={() => setEdit(true)}><i class="bi bi-pencil-square"> Edit</i></button>
+                                            <button class="btn ms-auto" onClick={() => setEdit(true)} style={{ color: "#ffc13b" }}><i class="bi bi-pencil-square"> Edit</i></button>
                                         </div>
                                     )}
                                     {authData && role.includes('admin') && authData._id !== comment?.user_id &&
                                         <div className="d-flex">
-                                            <button type="button" class="btn btn-danger ms-auto" onClick={() => { dispatch(deleteComment(comment._id)); window.location.replace(`/client/postdetail/${post_id}`) }}><i class="bi bi-trash"> Delete</i></button>
+                                            <button type="button" class="btn ms-auto" onClick={() => { dispatch(deleteComment(comment._id)); window.location.replace(`/client/postdetail/${post_id}`) }} style={{color: "red"}}><i class="bi bi-trash"> Delete</i></button>
                                         </div>
                                     }
                                 </div>
@@ -144,14 +144,14 @@ export default function Comment({ comment, post_id }) {
 
                                         </div>
                                     </form> :
-                                    <p>{comment?.content && nl2br(comment?.content)}</p>
+                                    <p style={{ color: "white" }}>{comment?.content && nl2br(comment?.content)}</p>
                                 }
                                 {/* {comment?.images && comment?.images != "" ? <img className="mb-2" style={{ maxWidth: '400px', maxHeight: '400px' }}
                                     src={`https://csfunctions-web-app.s3.amazonaws.com/${comment.images}`}></img>
                                     : <></>} */}
                             </div>
                         </div >
-                        {comment?.images && comment?.images != "" ? <img className="my-2 ms-1 rounded" style={{ maxWidth: '400px', maxHeight: '400px' }}
+                        {comment?.images && comment?.images != "" ? <img className="my-2 ms-1 rounded" style={{ maxWidth: '400px', maxHeight: '400px'}}
                                     src={`https://csfunctions-web-app.s3.amazonaws.com/${comment.images}`}></img>
                                     : <></>}
                     </div >

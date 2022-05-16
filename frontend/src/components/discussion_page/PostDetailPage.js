@@ -93,7 +93,7 @@ export default function PostDetailPage() {
                         <div className='d-flex'>
                             {/* <p className='my-auto'>Post by: </p> */}
                             <img src={`${post_detail[0]?.users[0]?.avatar ? `https://csfunctions-web-app.s3.amazonaws.com/${post_detail[0]?.users[0]?.avatar}` : 'http://cdn.onlinewebfonts.com/svg/img_24787.png'} `}
-                                class="img rounded-circle m-2" width="30" height="30" alt=""></img>
+                                class="img rounded-circle m-2" width="30" height="30" alt="" style={{border: "1px solid #ffc13b"}}></img>
                             <a href={`/client/profile/${post_detail[0]?.user_id}`} className='my-auto' style={{ "text-decoration": "none", color: "white" }}>
                                 <h1>{post_detail[0]?.users[0]?.name}&nbsp;({post_detail[0]?.users[0]?.username})</h1>
                             </a>
@@ -110,22 +110,22 @@ export default function PostDetailPage() {
                             </div>
                             <div className='col-md-5 col d-flex justify-content-end align-items-center'>
                                 <div className='ms-auto'>
-                                    {role && role.includes('admin') && <button type='button' className='btn btn-danger mx-1' style={{ width: '160px', height: '40px' }}
+                                    {role && role.includes('admin') && authData?._id !== post_detail[0]?.user_id && <button type='button' className='btn mx-1' style={{ width: '160px', height: '40px', color: "red" }}
                                         onClick={(e) => { e.preventDefault(); dispatch(deletePost(post_id)); window.location.replace(`/client/discussion/${post_detail[0].languages[0]._id}/general`) }}>
-                                        DELETE THIS POST
+                                        <i class="bi bi-trash"> Delete Post</i>
                                     </button>}
-                                    {authData?._id === post_detail[0]?.user_id && <a type='button' href={`/client/editpost/${post_detail[0]?._id}`} style={{ width: '160px', height: '40px' }}
-                                        class="btn btn-warning my-1">EDIT THIS POST</a>}
+                                    {authData?._id === post_detail[0]?.user_id && <a href={`/client/editpost/${post_detail[0]?._id}`} style={{ width: '160px', height: '40px' }}
+                                        ><button className='btn my-1' style={{color: "#ffc13b"}}><i class="bi bi-pencil-square">  Edit Post</i></button></a>}
                                 </div>
                             </div>
                         </div>
                         <div class="row mb-3">
                             <div class="col-lg-5 col-12">
-                                <label for="Langauge" style={{color: "#ffc13b"}}>Language:&nbsp;</label>
-                                <span style={{color: "#d64612"}}>{post_detail[0]?.languages[0]?.name}</span>
+                                {/* <label for="Langauge" style={{color: "#ffc13b"}}>Language:&nbsp;</label> */}
+                                <span style={{color: "#ffc13b"}}>#{post_detail[0]?.languages[0]?.name}</span>
                                 &nbsp;&nbsp;&nbsp;&nbsp;
-                                <label for="Topic" class="ms-1" style={{color: "#ffc13b"}}>Topic:&nbsp;</label>
-                                <span style={{color: "#d64612"}}>{post_detail[0]?.categories[0]?.name}</span>
+                                {/* <label for="Topic" class="ms-1" style={{color: "#ffc13b"}}>Topic:&nbsp;</label> */}
+                                <span style={{color: "#ffc13b"}}>#{post_detail[0]?.categories[0]?.name}</span>
                             </div>
                         </div>
                         <hr style={{color: "#1e3d59"}}></hr>
