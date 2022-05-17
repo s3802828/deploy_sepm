@@ -152,7 +152,7 @@ export default function PostDetailPage() {
                                     {/* <input name="user_id" type="hidden" value={commentData.user_id} /> */}
                                     <div class="d-grid gap-2 d-flex">
                                         <div class="custom-file">
-                                            <input type="file" name="images" className={`custom-file-input ${errors.images
+                                            <input type="file" name="images" style= {{color: "#ffc13b"}}className={`custom-file-input ${errors.images
                                                 ? 'is-invalid'
                                                 : ''}`} {...register('images')} onChange={(e) => { setCommentData({ ...commentData, images: e.target.files[0] }) }} id="inputGroupFile01" />
                                             <div className='invalid-feedback'>
