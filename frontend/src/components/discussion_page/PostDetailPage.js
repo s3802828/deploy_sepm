@@ -20,6 +20,7 @@ export default function PostDetailPage() {
 
     const validationSchema = Yup.object().shape({
         content: Yup.string().trim()
+            .transform(v => v === "" ? null : v)
             .required('Content is required')
             .matches(
                 /^[a-zA-Z0-9 ?,.$'"-:+_();@!%*#?&\/\\(\r\n|\r|\n)]+$/,
@@ -53,7 +54,7 @@ export default function PostDetailPage() {
     });
 
     const [commentData, setCommentData] = useState({
-        content: null, images: null
+        content: '', images: null
     })
     const { post_id } = useParams();
 
@@ -80,7 +81,7 @@ export default function PostDetailPage() {
 
         dispatch(addComment(dataArray));
         setCommentData({
-            content: null, images: null
+            content: '', images: null
         })
 
     }
