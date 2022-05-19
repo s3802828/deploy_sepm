@@ -20,7 +20,7 @@ export default function PersonalCheatSheetTab() {
                 <div className='row'>
                     <div class="d-flex justify-content-center">
                         <div class="col-lg-10 col-12">
-                            {userSavedFunctionsList?.map((element) => {
+                            {userSavedFunctionsList && userSavedFunctionsList?.map((element) => {
                                 return <table class="table table-striped" style={{ border: "1px solid white" }}>
                                     <thead>
                                         <tr>
