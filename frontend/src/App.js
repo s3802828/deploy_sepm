@@ -20,6 +20,7 @@ import EditPost from "./components/forms/EditPost";
 import { useDispatch, useSelector } from 'react-redux';
 import { getRole } from "./redux_sepm/actions/user";
 import { useEffect } from "react";
+import ScrollButton from "./ScrollButton";
 
 function App() {
   const { authData, role } = useSelector((state) => state?.authReducer)
@@ -48,6 +49,9 @@ function App() {
             {authData && <Route exact path="/client/editpost/:post_id" element={<EditPost />} />}
             <Route exact path="*" element={<PageNotFound />} />
           </Routes>
+        </div>
+        <div>
+          <ScrollButton/>
         </div>
       </Router>
     </div>
