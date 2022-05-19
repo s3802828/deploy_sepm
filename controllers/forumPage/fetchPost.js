@@ -37,12 +37,7 @@ exports.fetchPostsForTopic =  (req, res) =>  {
             console.log(error)
             return res.send([])
         } else {
-            if(data.toString() != ''){
-                return res.send(data)
-            } else {
-                return res.send(undefined)
-            }
-            
+            return res.send(data)
         }
     })
 }
@@ -83,11 +78,7 @@ exports.fetchGeneralPosts = async (req, res) => {
             console.log(error)
             return res.send([])
         } else {
-            if(data.toString() != ''){
-                return res.send(data)
-            } else {
-                return res.send(undefined)
-            }
+            return res.send(data)
         }
     })
 }
@@ -129,11 +120,7 @@ exports.fetchPopularPosts = async (req, res) => {
             console.log(error)
             return res.send([])
         } else {
-            if(data.toString() != ''){
-                return res.send(data)
-            } else {
-                return res.send(undefined)
-            }
+            return res.send(data)
         }
     })
 }

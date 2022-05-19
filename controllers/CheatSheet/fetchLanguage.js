@@ -25,24 +25,28 @@ exports.fetchTopicsForLanguage = async (req, res) => {
     if(!isValidId){
         return res.send(undefined)
     } 
-    // const ObjectId = mongoose.Types.ObjectId
-    // const newId = new ObjectId(req.params.language_id)
-    // else {
-    
-    categoryModel.find({ language_id:  req.params.language_id}, function (error, data) {
-        if (error) {
+    languageModel.findOne({
+        _id: req.params.language_id,
+    }, function (error, data){
+        if(error){
             console.log(error)
             return res.send([])
-        } else {
-            if (data) {
-                return res.send(data)
-            } else {
-                return res.send(undefined)
-            }
-
         }
-    }).sort({ name: 1 })
-    // }
+        if(!data){
+            return res.send(undefined)
+        } else {
+            categoryModel.find({ language_id:  req.params.language_id}, function (error, data) {
+                if (error) {
+                    console.log(error)
+                    return res.send([])
+                } else {
+                    return res.send(data)
+                }
+            }).sort({ name: 1 })
+        }
+    });
+    
+   
 
 }
 
@@ -52,12 +56,9 @@ exports.fetchFunctionsForTopic = async (req, res) => {
         return res.send(undefined)
     } 
 
-    const language = await languageModel.findOne({
-        _id: req.params.language_id,
-    });
 
     const topics = await categoryModel.find({
-        language_id: language._id,
+        language_id: req.params.language_id,
     }).distinct('_id');
 
 
@@ -72,11 +73,7 @@ exports.fetchFunctionsForTopic = async (req, res) => {
             console.log(error)
             return res.send([])
         } else {
-            if (data) {
-                return res.send(data)
-            } else {
-                return res.send(undefined)
-            }
+            return res.send(data)
         }
     }).sort({ name: 1 })
 

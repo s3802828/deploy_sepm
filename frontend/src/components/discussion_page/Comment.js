@@ -124,7 +124,7 @@ export default function Comment({ comment, post_id }) {
                                         </div>
                                         <input name="_id" type="hidden" value={comment._id} />
                                         <div class="custom-file my-2">
-                                            <input type="file" name="images" className={`custom-file-input ${errors.images
+                                            <input type="file" name="images" style = {{color: "#ffc13b"}} className={`custom-file-input ${errors.images
                                                 ? 'is-invalid'
                                                 : ''}`} {...register('images')} onChange={(e) => { setCommentData({ ...commentData, images: e.target.files[0] }) }} class="custom-file-input" id="inputGroupFile01" />
                                             <div className='invalid-feedback'>
