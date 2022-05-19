@@ -53,7 +53,7 @@ export default function PostDetailPage() {
     });
 
     const [commentData, setCommentData] = useState({
-        content: '', images: null
+        content: null, images: null
     })
     const { post_id } = useParams();
 
@@ -80,7 +80,7 @@ export default function PostDetailPage() {
 
         dispatch(addComment(dataArray));
         setCommentData({
-            content: '', images: null
+            content: null, images: null
         })
 
     }
