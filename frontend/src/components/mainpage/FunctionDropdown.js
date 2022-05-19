@@ -19,7 +19,7 @@ export default function FunctionDropdown({ func, category_id }) {
         // setTimeout(setCopied(!copied), 1000);
         navigator.clipboard.writeText(text);
         document.getElementById("copy-alert").style.display = "block";
-        setTimeout(() => {document.getElementById("copy-alert").style.display = "none"}, 2000);
+        setTimeout(() => { document.getElementById("copy-alert").style.display = "none" }, 2000);
         // alert("Copied text");
 
     }
@@ -31,15 +31,17 @@ export default function FunctionDropdown({ func, category_id }) {
     }, [authData])
     return (
         <div>
-            <div class="alert alert-success text-center" id="copy-alert" style={{position: 'fixed', bottom: 10, width: '85%', display: "none"}}>
-                Copied to clipboard
+            <div className='d-flex justify-content-center'>
+                <div class="alert alert-success text-center" id="copy-alert" style={{ position: 'fixed', bottom: 10, width: '30%', display: "none" }}>
+                    Copied to clipboard
+                </div>
             </div>
             <div class="text-black" style={{ padding: 6 }} id={`${func._id}`} >
                 <div class="fluid-container" >
                     <div class="row">
                         <div class="col-1">
-                        <h3>
-                                <i style={{color:"white"}} className={clicked == false ? "bi bi-heart" : "bi bi-heart-fill"}
+                            <h3>
+                                <i style={{ color: "white" }} className={clicked == false ? "bi bi-heart" : "bi bi-heart-fill"}
                                     onClick={() => {
                                         if (role) {
                                             if (!clicked) {
@@ -53,11 +55,11 @@ export default function FunctionDropdown({ func, category_id }) {
                                     }} />
                             </h3>
                         </div>
-                        <div class="col-10" style={{color: "white"}}>
+                        <div class="col-10" style={{ color: "white" }}>
                             <h5>{func.name}</h5>
                         </div>
                         <div class="col-1" >
-                            <h3>{open == false ? <i class="bi bi-caret-down-fill" style={{color: "white"}} onClick={() => setOpen(!open)} ></i> : <i class="bi bi-caret-up-fill" style={{color: "white"}} onClick={() => setOpen(!open)}></i>}</h3>
+                            <h3>{open == false ? <i class="bi bi-caret-down-fill" style={{ color: "white" }} onClick={() => setOpen(!open)} ></i> : <i class="bi bi-caret-up-fill" style={{ color: "white" }} onClick={() => setOpen(!open)}></i>}</h3>
 
                         </div>
                     </div>
