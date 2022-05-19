@@ -75,12 +75,12 @@ export default function Comment({ comment, post_id }) {
     return (
         <div>
             <div class="container-fluid my-3">
-                <div class="row justify-content-center my-1">
-                    <div class="col-1">
+                <div class="row justify-content-center my-1 me-2">
+                    <div class="col-2">
                     <img src={`${comment?.users[0]?.avatar ? `https://csfunctions-web-app.s3.amazonaws.com/${comment?.users[0]?.avatar}` : 'http://cdn.onlinewebfonts.com/svg/img_24787.png'} `}
                                     class="img rounded-circle m-2" width="40" height="40" alt="" style={{border: "1px solid #ffc13b"}}></img>
                     </div>
-                    <div class="col-10 rounded" style={{ border: "2px solid #ffc13b", marginRight: "5%" }}>
+                    <div class="col-10 rounded" style={{ border: "2px solid #ffc13b"}}>
                         <div class="row justify-content-between ms-1 rounded" >
                             <div className="d-flex">
                                 {/* <img src={`${comment?.users[0]?.avatar ? `https://csfunctions-web-app.s3.amazonaws.com/${comment?.users[0]?.avatar}` : 'http://cdn.onlinewebfonts.com/svg/img_24787.png'} `}
