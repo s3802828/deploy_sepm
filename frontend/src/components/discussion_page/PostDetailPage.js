@@ -79,6 +79,9 @@ export default function PostDetailPage() {
         }
 
         dispatch(addComment(dataArray));
+        setCommentData({
+            content: '', images: null
+        })
 
     }
 
