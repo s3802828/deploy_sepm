@@ -20,8 +20,6 @@ export default function PostDetailPage() {
 
     const validationSchema = Yup.object().shape({
         content: Yup.string().trim()
-            .transform(v => v === "" ? null : v)
-            .nullable(false)
             .required('Content is required')
             .matches(
                 /^[a-zA-Z0-9 ?,.$'"-:+_();@!%*#?&\/\\(\r\n|\r|\n)]+$/,
@@ -79,8 +77,9 @@ export default function PostDetailPage() {
         if (commentData.images != null) {
             dataArray.append("images", commentData.images, { type: 'image/jpeg' });
         }
-
-        dispatch(addComment(dataArray));
+        if(commentData.content !== ''){
+            dispatch(addComment(dataArray));
+        }
         setCommentData({
             content: '', images: null
         })
