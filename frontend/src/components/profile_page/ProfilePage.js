@@ -52,7 +52,7 @@ export default function ProfilePage() {
                         <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
 
 
-                            {userPostList.map((element) => {
+                            {userPostList?.map((element) => {
                                 return (
                                     <div>
                                         <UserPost post={element} userInfo={userInfo}/>

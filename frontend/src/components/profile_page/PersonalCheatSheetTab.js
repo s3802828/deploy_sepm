@@ -5,16 +5,6 @@ import { useParams } from 'react-router-dom';
 import { functions } from '../../redux_sepm/reducers/function';
 import UserSavedFunctions from './UserSavedFunction';
 export default function PersonalCheatSheetTab() {
-    // const dispatch = useDispatch();
-    // useEffect(() => {
-    //     dispatch(getTopicFromLang(topic_id.language_id));
-    //     dispatch(getSavedFunction(authData._id))
-    // }, [dispatch])
-
-    // const usersavedFunction = useSelector((state) => state.profileSavedFunction)
-
-    const topicList = ["Topic 1", "Topic 2"];
-    const count = [1, 2, 3, 4, 5]
 
     const dispatch = useDispatch();
     const user_id = useParams();
@@ -30,7 +20,7 @@ export default function PersonalCheatSheetTab() {
                 <div className='row'>
                     <div class="d-flex justify-content-center">
                         <div class="col-lg-10 col-12">
-                            {userSavedFunctionsList.map((element) => {
+                            {userSavedFunctionsList?.map((element) => {
                                 return <table class="table table-striped" style={{ border: "1px solid white" }}>
                                     <thead>
                                         <tr>
