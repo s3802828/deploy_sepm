@@ -83,6 +83,7 @@ export default function PostDetailPage() {
         setCommentData({
             content: '', images: null
         })
+        document.getElementById("addCommentForm").reset();
 
     }
 
@@ -142,7 +143,7 @@ export default function PostDetailPage() {
                         </div>
                         <div class="row justify-content-center mb-3" >
                             {authData && <div class="col-9 mt-3 py-2" style={{ backgroundColor: "#152039" }}>
-                                <form encType="multipart/form-data" onSubmit={handleSubmit(submit)}>
+                                <form encType="multipart/form-data" id='addCommentForm' onSubmit={handleSubmit(submit)}>
                                     <div class="input-group my-2">
                                         <textarea name="content" className={`form-control ${errors.content
                                             ? 'is-invalid'
