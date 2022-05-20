@@ -16,7 +16,7 @@ export default function Comment({ comment, post_id }) {
         content: Yup.string().trim()
             .required('Content is required')
             .matches(
-                /^[a-zA-Z0-9 ?,.$'"-:+_();@!%*#?&\/\\(\r\n|\r|\n)]+$/,
+                /^[a-zA-Z0-9 ?,.$'"-:+_();=@!%*#?&\/\\(\r\n|\r|\n)]+$/,
                 'Content cannot contain certain special characters. Be careful with apostrophe. The valid one is " \' "'
             ),
         images: Yup.mixed()
