@@ -25,5 +25,5 @@ exports.fetchOwnedPosts = async (req, res) => {
                 return res.send(undefined)
             }
         }
-    }).sort('createdAt', -1)
+    }).sort({'createdAt': -1})
 }
