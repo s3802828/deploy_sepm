@@ -6,8 +6,6 @@ export const functions = (funct = [], action) => {
             return action.payload;
         case SAVE:
             return funct;
-        case UNSAVE:
-            return funct;
         case FETCH_BY_FUNCTION:
             return action.payload;
         case CREATE_FUNCTION:
